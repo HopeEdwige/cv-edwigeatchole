@@ -3,14 +3,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f7f6; /* Fond très léger */
+    background-color: #f4f7f6;
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
-    color: #007bff; /* Bleu Professionnel */
+    color: #007bff;
     font-weight: 600;
 }
 
@@ -82,17 +82,17 @@ nav ul li a:hover {
 /* --- STRUCTURE DEUX COLONNES (GRID) --- */
 .resume-grid {
     display: grid;
-    /* 30% pour la colonne latérale, 70% pour le contenu principal */
     grid-template-columns: 1fr 2fr; 
     gap: 30px;
-    max-width: 1200px;
+    /* AUGMENTATION DE LA LARGEUR MAXIMALE À 1300PX */
+    max-width: 1300px; 
     margin: 40px auto;
     padding: 0 20px;
 }
 
 /* --- COLONNE LATÉRALE (SIDEBAR) --- */
 .sidebar {
-    background-color: #eaf2f8; /* Arrière-plan bleu très clair pour contraste */
+    background-color: #eaf2f8;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -201,6 +201,9 @@ nav ul li a:hover {
     border-radius: 6px;
     border-left: 3px solid #007bff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    /* CORRECTION CLÉ : force la boîte à prendre 100% de l'espace disponible */
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 .institution {
@@ -229,12 +232,11 @@ footer {
 
 /* 1. Style et affichage du caractère du curseur */
 #typing-text::after {
-    content: '|'; /* Le caractère du curseur */
+    content: '|';
     display: inline-block;
-    color: #007bff; /* Couleur du curseur */
+    color: #007bff;
     font-weight: bold;
     margin-left: 5px;
-    /* Correction : l'animation n'est PAS ici, elle est dans .typed#typing-text::after */
 }
 
 /* 2. Appliquer l'animation de clignotement UNIQUEMENT lorsque le JS a fini de taper (.typed) */
@@ -258,19 +260,16 @@ footer {
 
 /* --- Media Queries (Adaptation Mobile) --- */
 @media (max-width: 900px) {
-    /* La grille redevient une seule colonne sur les petits écrans */
     .resume-grid {
         grid-template-columns: 1fr;
         gap: 0;
     }
     
-    /* La sidebar passe en premier sur mobile et perd sa couleur de fond */
     .sidebar {
         order: -1; 
         background-color: white;
     }
 
-    /* Remettre un espacement entre les sections qui étaient dans des colonnes */
     .main-content section {
         margin-top: 30px;
     }
