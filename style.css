@@ -82,17 +82,17 @@ nav ul li a:hover {
 /* --- STRUCTURE DEUX COLONNES (GRID) --- */
 .resume-grid {
     display: grid;
+    /* 30% pour la colonne latérale, 70% pour le contenu principal */
     grid-template-columns: 1fr 2fr; 
     gap: 30px;
-    /* AUGMENTATION DE LA LARGEUR MAXIMALE À 1300PX */
-    max-width: 1300px; 
+    max-width: 1300px; /* Augmentation pour les grands écrans */
     margin: 40px auto;
     padding: 0 20px;
 }
 
 /* --- COLONNE LATÉRALE (SIDEBAR) --- */
 .sidebar {
-    background-color: #eaf2f8;
+    background-color: #eaf2f8; 
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -201,9 +201,9 @@ nav ul li a:hover {
     border-radius: 6px;
     border-left: 3px solid #007bff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    /* CORRECTION CLÉ : force la boîte à prendre 100% de l'espace disponible */
+    /* CORRECTIONS FINALES */
     width: 100%; 
-    box-sizing: border-box; 
+    box-sizing: border-box; /* Inclut le padding dans le calcul de la largeur totale */
 }
 
 .institution {
@@ -230,7 +230,6 @@ footer {
     display: inline-block;
 }
 
-/* 1. Style et affichage du caractère du curseur */
 #typing-text::after {
     content: '|';
     display: inline-block;
@@ -239,12 +238,11 @@ footer {
     margin-left: 5px;
 }
 
-/* 2. Appliquer l'animation de clignotement UNIQUEMENT lorsque le JS a fini de taper (.typed) */
+/* L'animation démarre quand le JS ajoute la classe 'typed' */
 .typed#typing-text::after {
     animation: blink 0.7s infinite; 
 }
 
-/* Définition de l'animation de clignotement (Blink) */
 @keyframes blink {
     0% {
         opacity: 1;
