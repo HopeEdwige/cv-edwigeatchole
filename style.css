@@ -1,18 +1,22 @@
-/* --- Base et Général --- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* --- 1. CSS Global Reset (Essentiel pour la compatibilité navigateur) --- */
+* {
+    /* Cette règle garantit que la taille des boîtes (width/height) inclut le padding et la border, assurant une apparence uniforme. */
+    box-sizing: border-box; 
     margin: 0;
     padding: 0;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* --- 2. Base et Général --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f6;
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
-}
-
-main {
-    max-width: 1000px;
-    margin: 40px auto; 
-    padding: 0 20px;
 }
 
 h1, h2, h3 {
@@ -20,15 +24,15 @@ h1, h2, h3 {
     font-weight: 600;
 }
 
-section {
-    margin-bottom: 50px; 
-}
-
 h2 {
     border-bottom: 3px solid #007bff;
     padding-bottom: 10px;
-    margin-top: 50px; 
+    margin-top: 10px; 
     margin-bottom: 25px;
+    font-size: 1.8em;
+}
+h2 i {
+    margin-right: 10px;
 }
 
 a {
@@ -40,37 +44,50 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Header & Navigation --- */
+/* --- 3. Header & Navigation --- */
 .hero {
     background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
+    padding: 20px 0 0; /* Réduction du padding du bas car la nav suit */
     text-align: center;
 }
 
 .header-content {
-    padding: 20px;
+    padding: 20px 20px 30px;
 }
 
 .photo-container img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #007bff;
-    margin-bottom: 15px;
+    border: 4px solid #007bff;
+    margin-bottom: 10px;
 }
 
 .title {
     color: #555;
     font-style: italic;
     font-size: 1.1em;
+    margin-bottom: 20px;
 }
 
+/* Style de la barre d'information de contact dans le header */
+.contact-info {
+    display: flex; /* Disposition horizontale */
+    flex-wrap: wrap; /* Passage à la ligne sur petit écran */
+    justify-content: center;
+    gap: 20px 30px; /* Espace entre les éléments */
+    font-size: 1em;
+    color: #555;
+}
 .contact-info span {
-    margin: 0 10px;
-    display: inline-block;
-    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+}
+.contact-info i {
+    color: #007bff;
+    margin-right: 8px;
 }
 
 nav ul {
@@ -80,11 +97,12 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li a {
     color: white;
-    padding: 10px 20px;
+    padding: 10px 15px;
     display: block;
     transition: background-color 0.3s;
 }
@@ -94,7 +112,13 @@ nav ul li a:hover {
     text-decoration: none;
 }
 
-/* --- Cartes et Sections Générales --- */
+/* --- 4. STRUCTURE MONO-COLONNE (MAIN) --- */
+main {
+    max-width: 900px; /* Limite la largeur du contenu principal sur grands écrans */
+    margin: 40px auto; /* Centre le contenu */
+    padding: 0 20px; /* Marge latérale sur petits écrans */
+}
+
 .card {
     background-color: white;
     padding: 30px;
@@ -103,21 +127,12 @@ nav ul li a:hover {
     margin-bottom: 30px;
 }
 
-.list-style-clean {
-    list-style: none;
-    padding: 0;
-}
-
-.list-style-clean p {
-    padding: 5px 0;
-    border-bottom: 1px dashed #eee;
-}
-
-/* --- Chronologie (Timeline) - MODIFICATION MAJEURE ICI --- */
+/* --- 5. EXPÉRIENCES (CHRONOLOGIE ALIGNÉE À GAUCHE DANS LE FLUX) --- */
 .timeline {
     position: relative;
-    padding: 20px 0 20px 20px; /* Ajout de padding à gauche pour décaler la barre */
+    padding-left: 20px; 
     list-style: none;
+    padding-bottom: 10px; /* Espace après la dernière entrée */
 }
 
 .timeline::before {
@@ -125,77 +140,50 @@ nav ul li a:hover {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 4px;
+    width: 3px;
     background: #ccc;
-    left: 10px; /* Positionnement de la barre à gauche */
-    margin-left: -2px;
+    left: 0; 
 }
 
 .timeline-item {
     padding: 10px 0;
     position: relative;
-    width: 100%; /* L'élément prend toute la largeur */
-    margin-bottom: 20px;
-    left: 0 !important; /* Force l'alignement à gauche */
-    text-align: left !important;
-    padding-left: 40px; /* Espace pour le contenu par rapport à la ligne */
-    padding-right: 0;
-}
-
-.timeline-item:nth-child(odd) {
-    /* Suppression des règles d'alignement droite pour tous les éléments */
-    left: 0;
-    padding-right: 0; 
-    text-align: left;
-}
-
-.timeline-item:nth-child(even) {
-    /* Suppression des règles d'alignement droite pour tous les éléments */
-    left: 0;
-    padding-left: 40px; /* On réutilise le même padding */
-    text-align: left;
+    width: 100%;
+    margin-bottom: 25px;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     background: #007bff;
-    border: 3px solid white;
+    border: 3px solid #f4f7f6; /* Couleur de fond pour le "pop" */
     border-radius: 50%;
     z-index: 1;
     top: 20px;
-    left: 8px; /* Positionne le cercle sur la barre de gauche (10px - 16px/2) */
-}
-
-.timeline-item:nth-child(odd)::before {
-    left: 8px; /* Maintient le cercle sur la barre de gauche */
-    right: auto;
-}
-
-.timeline-item:nth-child(even)::before {
-    left: 8px; /* Maintient le cercle sur la barre de gauche */
+    left: -8px;
 }
 
 .timeline-date {
     font-weight: bold;
-    color: #007bff;
+    color: #2c3e50;
     margin-bottom: 5px;
 }
 
 .timeline-content {
-    background: white;
+    background: #ffffff;
     padding: 15px;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-left: 10px; /* Décaler la boîte pour qu'elle commence après le point */
+    border-left: 3px solid #007bff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .timeline-content h3 {
-    margin-top: 0;
     color: #2c3e50;
-    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.3em;
 }
 
 .institution {
@@ -204,26 +192,42 @@ nav ul li a:hover {
     margin-bottom: 10px;
 }
 
-/* --- Compétences (Grid Layout) --- */
-/* ... (Le reste des styles est inchangé) ... */
+/* --- 6. FORMATIONS --- */
+.list-style-clean {
+    list-style: none;
+    padding: 0;
+}
+
+.list-style-clean p {
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.list-style-clean p:last-child {
+    border-bottom: none;
+}
+
+/* --- 7. COMPÉTENCES (SKILLS GRID) --- */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* 3 colonnes sur grand écran, 1 colonne sur mobile */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 20px;
+    margin-top: 20px;
 }
-
 .skill-category {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
-
 .skill-category h3 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
     margin-top: 0;
-    font-size: 1.1em;
+    color: #2c3e50;
+    font-size: 1.2em;
 }
 
 .tag-list {
@@ -231,39 +235,44 @@ nav ul li a:hover {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
 }
 
 .tag-list li {
-    background-color: #e6f0ff;
-    color: #007bff;
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.9em;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.tag-list li:hover {
     background-color: #cce0ff;
+    color: #007bff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 500;
 }
 
-/* --- Atouts & Langues --- */
+/* --- 8. ATOUTS & LANGUES --- */
 .atouts-container {
     display: flex;
-    justify-content: space-around;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
 .list-atouts, .list-langues {
-    flex: 1;
-    padding: 0 20px;
+    flex: 1; /* Prend l'espace disponible */
+    min-width: 250px; /* Assure que les colonnes sont assez larges */
 }
 
+.list-langues h3, .list-atouts h3 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.3em;
+}
 .list-langues p {
-    font-weight: 500;
+    margin-bottom: 8px;
 }
 
-/* --- Footer --- */
+
+/* --- 9. Footer --- */
 footer {
     text-align: center;
     padding: 20px 0;
@@ -276,33 +285,23 @@ footer p {
     margin: 5px 0;
 }
 
-/* --- Media Queries (Adaptation Mobile) --- */
-@media (max-width: 768px) {
-    /* Le mobile est déjà aligné à gauche, on le simplifie encore */
-    .timeline::before {
-        left: 10px;
-    }
-    .timeline-item {
-        width: 100%;
-        left: 0 !important;
-        padding-left: 40px;
-        padding-right: 10px;
-        text-align: left !important;
-    }
-    .timeline-item::before {
-        left: 4px !important;
-    }
 
-    /* Le menu devient colonne */
-    nav ul {
-        flex-direction: column;
+/* --- 10. Media Queries (Adaptation Mobile) --- */
+@media (max-width: 600px) {
+    .contact-info {
+        flex-direction: column; /* Contacts empilés sur mobile */
+        gap: 10px;
     }
-    nav ul li a {
-        padding: 10px;
-    }
-
-    /* Atouts et Langues en colonne */
     .atouts-container {
-        flex-direction: column;
+        flex-direction: column; /* Atouts et langues empilés sur mobile */
+        gap: 20px;
+    }
+    
+    main {
+        padding: 0 10px;
+    }
+
+    .card {
+        padding: 20px;
     }
 }
