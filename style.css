@@ -9,17 +9,27 @@ body {
     scroll-behavior: smooth;
 }
 
+main {
+    max-width: 1000px;
+    /* Espace généreux autour du contenu principal */
+    margin: 40px auto; 
+    padding: 0 20px;
+}
+
 h1, h2, h3 {
     color: #007bff;
     font-weight: 600;
 }
 
+section {
+    margin-bottom: 50px; 
+}
+
 h2 {
     border-bottom: 3px solid #007bff;
     padding-bottom: 10px;
-    margin-top: 20px; 
+    margin-top: 50px; 
     margin-bottom: 25px;
-    font-size: 1.8em;
 }
 
 a {
@@ -44,18 +54,24 @@ a:hover {
 }
 
 .photo-container img {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #007bff;
-    margin-bottom: 10px;
+    border: 5px solid #007bff;
+    margin-bottom: 15px;
 }
 
 .title {
     color: #555;
     font-style: italic;
     font-size: 1.1em;
+}
+
+.contact-info span {
+    margin: 0 10px;
+    display: inline-block;
+    font-size: 0.9em;
 }
 
 nav ul {
@@ -79,67 +95,13 @@ nav ul li a:hover {
     text-decoration: none;
 }
 
-/* --- STRUCTURE DEUX COLONNES (GRID) --- */
-.resume-grid {
-    display: grid;
-    /* 30% pour la colonne latérale, 70% pour le contenu principal */
-    grid-template-columns: 1fr 2fr; 
-    gap: 30px;
-    max-width: 1300px; /* Augmentation pour les grands écrans */
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-/* --- COLONNE LATÉRALE (SIDEBAR) --- */
-.sidebar {
-    background-color: #eaf2f8; 
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.sidebar h3 {
-    color: #2c3e50;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
-    margin-top: 30px;
-    font-size: 1.2em;
-}
-
-.sidebar p, .sidebar li {
-    font-size: 0.95em;
-    margin-bottom: 5px;
-}
-
-.tag-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 15px;
-}
-
-.tag-list li {
-    background-color: #cce0ff;
-    color: #007bff;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.85em;
-    font-weight: 500;
-}
-
-
-/* --- COLONNE PRINCIPALE (MAIN CONTENT) --- */
-.main-content {
+/* --- Cartes et Sections Générales --- */
+.card {
     background-color: white;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.card {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .list-style-clean {
@@ -148,14 +110,14 @@ nav ul li a:hover {
 }
 
 .list-style-clean p {
-    padding: 10px 0;
+    padding: 5px 0;
     border-bottom: 1px dashed #eee;
 }
 
-/* --- CHRONOLOGIE ALIGNÉE À GAUCHE --- */
+/* --- Chronologie (Timeline) - AVEC CORRECTION D'ESPACEMENT --- */
 .timeline {
     position: relative;
-    padding-left: 20px; 
+    padding: 20px 0;
     list-style: none;
 }
 
@@ -164,52 +126,139 @@ nav ul li a:hover {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 3px;
+    width: 4px;
     background: #ccc;
-    left: 0; 
+    left: 50%;
+    margin-left: -2px;
 }
 
 .timeline-item {
     padding: 10px 0;
     position: relative;
-    width: 100%;
-    margin-bottom: 25px;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+/* Éléments à gauche (odd) - Utilisation de 80px pour un grand espace */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 80px; 
+    text-align: right;
+}
+
+/* Éléments à droite (even) - Utilisation de 60px pour un grand espace */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 60px;
+    text-align: left;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background: #007bff;
     border: 3px solid white;
     border-radius: 50%;
     z-index: 1;
     top: 20px;
+}
+
+/* Positionnement du cercle à gauche (CORRECTION : -23px pour centrer dans 80px) */
+.timeline-item:nth-child(odd)::before {
+    right: -23px; 
+}
+
+/* Positionnement du cercle à droite */
+.timeline-item:nth-child(even)::before {
     left: -8px;
 }
 
 .timeline-date {
     font-weight: bold;
-    color: #2c3e50;
+    color: #007bff;
     margin-bottom: 5px;
 }
 
 .timeline-content {
-    background: #fcfcfc;
+    background: white;
     padding: 15px;
     border-radius: 6px;
-    border-left: 3px solid #007bff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    /* CORRECTIONS FINALES */
-    width: 100%; 
-    box-sizing: border-box; /* Inclut le padding dans le calcul de la largeur totale */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Bonne pratique pour éviter les débordements */
+    box-sizing: border-box; 
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.2em;
 }
 
 .institution {
     font-style: italic;
     color: #777;
     margin-bottom: 10px;
+}
+
+/* --- Compétences (Grid Layout) --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.skill-category {
+    background-color: #f7f7f7; /* Légèrement différent pour le contraste */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.skill-category h3 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-size: 1.1em;
+}
+
+.tag-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag-list li {
+    background-color: #e6f0ff; 
+    color: #007bff;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.tag-list li:hover {
+    background-color: #cce0ff;
+}
+
+/* --- Atouts & Langues --- */
+.atouts-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.list-atouts, .list-langues {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.list-langues p {
+    font-weight: 500;
 }
 
 /* --- Footer --- */
@@ -221,6 +270,10 @@ footer {
     font-size: 0.9em;
     margin-top: 40px;
 }
+footer p {
+    margin: 5px 0;
+}
+
 
 /* --- Effet Machine à Écrire (Typing Effect) --- */
 #typing-text {
@@ -230,6 +283,7 @@ footer {
     display: inline-block;
 }
 
+/* 1. Style et affichage du caractère du curseur */
 #typing-text::after {
     content: '|';
     display: inline-block;
@@ -238,11 +292,12 @@ footer {
     margin-left: 5px;
 }
 
-/* L'animation démarre quand le JS ajoute la classe 'typed' */
+/* 2. Appliquer l'animation de clignotement UNIQUEMENT lorsque le JS a fini de taper (.typed) */
 .typed#typing-text::after {
     animation: blink 0.7s infinite; 
 }
 
+/* Définition de l'animation de clignotement (Blink) */
 @keyframes blink {
     0% {
         opacity: 1;
@@ -257,18 +312,29 @@ footer {
 
 
 /* --- Media Queries (Adaptation Mobile) --- */
-@media (max-width: 900px) {
-    .resume-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
+@media (max-width: 768px) {
+    /* La chronologie redevient une simple barre à gauche sur mobile */
+    .timeline::before {
+        left: 20px;
     }
-    
-    .sidebar {
-        order: -1; 
-        background-color: white;
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 40px;
+        padding-right: 10px;
+        text-align: left !important;
+    }
+    .timeline-item::before {
+        left: 14px !important;
+        /* Règle pour centrer le point sur la ligne mobile */
+        margin-left: -5px; 
+    }
+    .timeline-item:nth-child(odd)::before {
+        right: auto; /* Supprime le positionnement 'right' */
     }
 
-    .main-content section {
-        margin-top: 30px;
+    /* Atouts et Langues en colonne */
+    .atouts-container {
+        flex-direction: column;
     }
 }
