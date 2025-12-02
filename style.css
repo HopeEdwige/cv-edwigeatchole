@@ -3,32 +3,23 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f7f6;
+    background-color: #f4f7f6; /* Fond très léger */
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
 
-main {
-    max-width: 1000px;
-    margin: 40px auto; 
-    padding: 0 20px;
-}
-
 h1, h2, h3 {
-    color: #007bff;
+    color: #007bff; /* Bleu Professionnel */
     font-weight: 600;
-}
-
-section {
-    margin-bottom: 50px; 
 }
 
 h2 {
     border-bottom: 3px solid #007bff;
     padding-bottom: 10px;
-    margin-top: 50px; 
+    margin-top: 20px; 
     margin-bottom: 25px;
+    font-size: 1.8em;
 }
 
 a {
@@ -53,24 +44,18 @@ a:hover {
 }
 
 .photo-container img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #007bff;
-    margin-bottom: 15px;
+    border: 4px solid #007bff;
+    margin-bottom: 10px;
 }
 
 .title {
     color: #555;
     font-style: italic;
     font-size: 1.1em;
-}
-
-.contact-info span {
-    margin: 0 10px;
-    display: inline-block;
-    font-size: 0.9em;
 }
 
 nav ul {
@@ -94,13 +79,67 @@ nav ul li a:hover {
     text-decoration: none;
 }
 
-/* --- Cartes et Sections Générales --- */
-.card {
+/* --- STRUCTURE DEUX COLONNES (GRID) --- */
+.resume-grid {
+    display: grid;
+    /* 30% pour la colonne latérale, 70% pour le contenu principal */
+    grid-template-columns: 1fr 2fr; 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- COLONNE LATÉRALE (SIDEBAR) --- */
+.sidebar {
+    background-color: #eaf2f8; /* Arrière-plan bleu très clair pour contraste */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar h3 {
+    color: #2c3e50;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+.sidebar p, .sidebar li {
+    font-size: 0.95em;
+    margin-bottom: 5px;
+}
+
+.tag-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.tag-list li {
+    background-color: #cce0ff;
+    color: #007bff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+
+/* --- COLONNE PRINCIPALE (MAIN CONTENT) --- */
+.main-content {
     background-color: white;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
+}
+
+.card {
+    margin-bottom: 40px;
 }
 
 .list-style-clean {
@@ -109,14 +148,14 @@ nav ul li a:hover {
 }
 
 .list-style-clean p {
-    padding: 5px 0;
+    padding: 10px 0;
     border-bottom: 1px dashed #eee;
 }
 
-/* --- Chronologie (Timeline) - MODIFICATION MAJEURE ICI --- */
+/* --- CHRONOLOGIE ALIGNÉE À GAUCHE --- */
 .timeline {
     position: relative;
-    padding: 20px 0 20px 20px; /* Ajout de padding à gauche pour décaler la barre */
+    padding-left: 20px; 
     list-style: none;
 }
 
@@ -125,142 +164,49 @@ nav ul li a:hover {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 4px;
+    width: 3px;
     background: #ccc;
-    left: 10px; /* Positionnement de la barre à gauche */
-    margin-left: -2px;
+    left: 0; 
 }
 
 .timeline-item {
     padding: 10px 0;
     position: relative;
-    width: 100%; /* L'élément prend toute la largeur */
-    margin-bottom: 20px;
-    left: 0 !important; /* Force l'alignement à gauche */
-    text-align: left !important;
-    padding-left: 40px; /* Espace pour le contenu par rapport à la ligne */
-    padding-right: 0;
-}
-
-.timeline-item:nth-child(odd) {
-    /* Suppression des règles d'alignement droite pour tous les éléments */
-    left: 0;
-    padding-right: 0; 
-    text-align: left;
-}
-
-.timeline-item:nth-child(even) {
-    /* Suppression des règles d'alignement droite pour tous les éléments */
-    left: 0;
-    padding-left: 40px; /* On réutilise le même padding */
-    text-align: left;
+    width: 100%;
+    margin-bottom: 25px;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     background: #007bff;
     border: 3px solid white;
     border-radius: 50%;
     z-index: 1;
     top: 20px;
-    left: 8px; /* Positionne le cercle sur la barre de gauche (10px - 16px/2) */
-}
-
-.timeline-item:nth-child(odd)::before {
-    left: 8px; /* Maintient le cercle sur la barre de gauche */
-    right: auto;
-}
-
-.timeline-item:nth-child(even)::before {
-    left: 8px; /* Maintient le cercle sur la barre de gauche */
+    left: -8px;
 }
 
 .timeline-date {
     font-weight: bold;
-    color: #007bff;
+    color: #2c3e50;
     margin-bottom: 5px;
 }
 
 .timeline-content {
-    background: white;
+    background: #fcfcfc;
     padding: 15px;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-left: 10px; /* Décaler la boîte pour qu'elle commence après le point */
-}
-
-.timeline-content h3 {
-    margin-top: 0;
-    color: #2c3e50;
-    font-size: 1.2em;
+    border-left: 3px solid #007bff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .institution {
     font-style: italic;
     color: #777;
     margin-bottom: 10px;
-}
-
-/* --- Compétences (Grid Layout) --- */
-/* ... (Le reste des styles est inchangé) ... */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.skill-category {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.skill-category h3 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-top: 0;
-    font-size: 1.1em;
-}
-
-.tag-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.tag-list li {
-    background-color: #e6f0ff;
-    color: #007bff;
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.9em;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.tag-list li:hover {
-    background-color: #cce0ff;
-}
-
-/* --- Atouts & Langues --- */
-.atouts-container {
-    display: flex;
-    justify-content: space-around;
-}
-
-.list-atouts, .list-langues {
-    flex: 1;
-    padding: 0 20px;
-}
-
-.list-langues p {
-    font-weight: 500;
 }
 
 /* --- Footer --- */
@@ -272,37 +218,59 @@ footer {
     font-size: 0.9em;
     margin-top: 40px;
 }
-footer p {
-    margin: 5px 0;
+
+/* --- Effet Machine à Écrire (Typing Effect) --- */
+#typing-text {
+    font-size: 1.1em;
+    font-weight: 500;
+    line-height: 1.6;
+    display: inline-block;
 }
 
+/* Style pour le curseur clignotant */
+#typing-text::after {
+    content: '|'; /* Le caractère du curseur */
+    display: inline-block;
+    color: #007bff; /* Couleur du curseur */
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* L'animation est appliquée uniquement quand le texte a fini d'être tapé */
+.typed#typing-text::after {
+    animation: blink 0.7s infinite; 
+}
+
+/* Définition de l'animation de clignotement (Blink) */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
 /* --- Media Queries (Adaptation Mobile) --- */
-@media (max-width: 768px) {
-    /* Le mobile est déjà aligné à gauche, on le simplifie encore */
-    .timeline::before {
-        left: 10px;
+@media (max-width: 900px) {
+    /* La grille redevient une seule colonne sur les petits écrans */
+    .resume-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
     }
-    .timeline-item {
-        width: 100%;
-        left: 0 !important;
-        padding-left: 40px;
-        padding-right: 10px;
-        text-align: left !important;
-    }
-    .timeline-item::before {
-        left: 4px !important;
+    
+    /* La sidebar passe en premier sur mobile et perd sa couleur de fond */
+    .sidebar {
+        order: -1; 
+        background-color: white;
     }
 
-    /* Le menu devient colonne */
-    nav ul {
-        flex-direction: column;
-    }
-    nav ul li a {
-        padding: 10px;
-    }
-
-    /* Atouts et Langues en colonne */
-    .atouts-container {
-        flex-direction: column;
+    /* Remettre un espacement entre les sections qui étaient dans des colonnes */
+    .main-content section {
+        margin-top: 30px;
     }
 }
