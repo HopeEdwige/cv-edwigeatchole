@@ -36,51 +36,37 @@
                 <p id="typing-text"></p> 
             </section>
             
-            <section id="experiences">
+            <section id="experiences" class="card">
                 <h2><i class="fas fa-briefcase"></i> Expériences professionnelles & Projets</h2>
-                <div class="timeline">
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">Depuis Sept. 2025</div>
-                        <div class="timeline-content">
-                            <h3>Projet tutoré - Développeur full-stack</h3>
-                            <p class="institution">Université de Rouen, Rouen</p>
-                            <ul>
-                                <li>Détection d'obstacles pour l'assistance à la marche sur piste d'athlétisme via YOLO.</li>
-                                <li>Analyse des bordures de voie et identification de personnes comme obstacles.</li>
-                                <li>Étude de la documentation YOLO et tests sur des datasets publics.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">Mars 2025 - Avr. 2025</div>
-                        <div class="timeline-content">
-                            <h3>Projet de fin d'année - Développeur full-stack</h3>
-                            <p class="institution">Université de Rouen, Rouen</p>
-                            <p>Logiciel Python de segmentation des tumeurs et quantification de leurs surfaces à partir des images médicales (tumeur cérébrale sur IRM, tumeur pulmonaire sur PET).</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">Mai 2024 - Juil. 2024</div>
-                        <div class="timeline-content">
-                            <h3>Développeur full-stack (Distanciel)</h3>
-                            <p class="institution">OHana Entreprise, Angers</p>
-                            <p>Développement d'une plateforme sécurisée pour la création et la gestion de dossiers et de fichiers salariés, avec niveaux d'autorisation spécifiques.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">Depuis Oct. 2024</div>
-                        <div class="timeline-content">
-                            <h3>Intervenant pédagogique à domicile</h3>
-                            <p class="institution">Complétude, Rouen</p>
-                            <p>Aide aux devoirs en Mathématiques, Physiques-Chimie.</p>
-                        </div>
-                    </div>
-
+                
+                <div class="experience-item">
+                    <h3>Projet tutoré - Développeur full-stack</h3>
+                    <p class="institution">Université de Rouen, Rouen | Depuis Sept. 2025</p>
+                    <ul>
+                        <li>Détection d'obstacles pour l'assistance à la marche sur piste d'athlétisme via YOLO.</li>
+                        <li>Analyse des bordures de voie et identification de personnes comme obstacles.</li>
+                        <li>Étude de la documentation YOLO et tests sur des datasets publics.</li>
+                    </ul>
                 </div>
+
+                <div class="experience-item">
+                    <h3>Projet de fin d'année - Développeur full-stack</h3>
+                    <p class="institution">Université de Rouen, Rouen | Mars 2025 - Avr. 2025</p>
+                    <p>Logiciel Python de segmentation des tumeurs et quantification de leurs surfaces à partir des images médicales (tumeur cérébrale sur IRM, tumeur pulmonaire sur PET).</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Développeur full-stack (Distanciel)</h3>
+                    <p class="institution">OHana Entreprise, Angers | Mai 2024 - Juil. 2024</p>
+                    <p>Développement d'une plateforme sécurisée pour la création et la gestion de dossiers et de fichiers salariés, avec niveaux d'autorisation spécifiques.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Intervenant pédagogique à domicile</h3>
+                    <p class="institution">Complétude, Rouen | Depuis Oct. 2024</p>
+                    <p>Aide aux devoirs en Mathématiques, Physiques-Chimie.</p>
+                </div>
+
             </section>
             
             <section id="formations" class="card">
@@ -175,12 +161,10 @@
                 index++;
                 setTimeout(typeWriter, speed);
             } else {
-                // AJOUTER LA CLASSE 'typed' quand le texte est fini
                 element.classList.add('typed');
             }
         }
 
-        // Démarrer l'effet après un petit délai
         setTimeout(typeWriter, 500);
     </script>
 </body>

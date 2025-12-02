@@ -85,7 +85,7 @@ nav ul li a:hover {
     /* 30% pour la colonne latérale, 70% pour le contenu principal */
     grid-template-columns: 1fr 2fr; 
     gap: 30px;
-    max-width: 1300px; /* Augmentation pour les grands écrans */
+    max-width: 1300px; 
     margin: 40px auto;
     padding: 0 20px;
 }
@@ -132,13 +132,14 @@ nav ul li a:hover {
 
 /* --- COLONNE PRINCIPALE (MAIN CONTENT) --- */
 .main-content {
+    /* Suppression du padding ici car les sections card le gèrent */
+}
+
+.card {
     background-color: white;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.card {
     margin-bottom: 40px;
 }
 
@@ -152,64 +153,34 @@ nav ul li a:hover {
     border-bottom: 1px dashed #eee;
 }
 
-/* --- CHRONOLOGIE ALIGNÉE À GAUCHE --- */
-.timeline {
-    position: relative;
-    padding-left: 20px; 
-    list-style: none;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: #ccc;
-    left: 0; 
-}
-
-.timeline-item {
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
+/* --- NOUVEAU STYLE POUR LA LISTE DES EXPÉRIENCES --- */
+.experience-item {
     margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ddd; /* Séparateur */
 }
 
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    background: #007bff;
-    border: 3px solid white;
-    border-radius: 50%;
-    z-index: 1;
-    top: 20px;
-    left: -8px;
+.experience-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
-.timeline-date {
-    font-weight: bold;
+.experience-item h3 {
     color: #2c3e50;
+    font-size: 1.3em;
     margin-bottom: 5px;
 }
 
-.timeline-content {
-    background: #fcfcfc;
-    padding: 15px;
-    border-radius: 6px;
-    border-left: 3px solid #007bff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    /* CORRECTION : Règle qui garantit que la boîte prend toute la place disponible */
-    width: 100%; 
-    box-sizing: border-box; 
+.experience-item ul {
+    margin-top: 10px;
+    padding-left: 20px;
 }
 
 .institution {
     font-style: italic;
     color: #777;
     margin-bottom: 10px;
+    display: block;
 }
 
 /* --- Footer --- */
@@ -238,7 +209,6 @@ footer {
     margin-left: 5px;
 }
 
-/* L'animation démarre quand le JS ajoute la classe 'typed' */
 .typed#typing-text::after {
     animation: blink 0.7s infinite; 
 }
