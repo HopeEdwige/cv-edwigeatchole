@@ -227,16 +227,17 @@ footer {
     display: inline-block;
 }
 
-/* Style pour le curseur clignotant */
+/* 1. Style et affichage du caractère du curseur */
 #typing-text::after {
     content: '|'; /* Le caractère du curseur */
     display: inline-block;
     color: #007bff; /* Couleur du curseur */
     font-weight: bold;
     margin-left: 5px;
+    /* Correction : l'animation n'est PAS ici, elle est dans .typed#typing-text::after */
 }
 
-/* L'animation est appliquée uniquement quand le texte a fini d'être tapé */
+/* 2. Appliquer l'animation de clignotement UNIQUEMENT lorsque le JS a fini de taper (.typed) */
 .typed#typing-text::after {
     animation: blink 0.7s infinite; 
 }
