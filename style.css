@@ -1,138 +1,155 @@
-/* --- 1. CSS Global Reset (Essentiel pour la compatibilité navigateur) --- */
+/* style.css - Version Améliorée et Professionnelle (Incluant la correction Timeline) */
+
+/* --- 1. CSS Global Reset --- */
 * {
-    /* Cette règle garantit que la taille des boîtes (width/height) inclut le padding et la border, assurant une apparence uniforme. */
+    /* box-sizing: border-box est essentiel pour que les tailles incluent padding/border */
     box-sizing: border-box; 
     margin: 0;
     padding: 0;
 }
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
-/* --- 2. Base et Général --- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
-    line-height: 1.6;
+html {
     scroll-behavior: smooth;
 }
 
+/* --- 2. Base et Typographie --- */
+body {
+    /* Police Montserrat pour un look moderne (Assurez-vous de l'importer dans le HTML <head>) */
+    font-family: 'Montserrat', sans-serif; 
+    background-color: #f0f4f8; /* Arrière-plan doux */
+    color: #444;
+    line-height: 1.6;
+}
+
 h1, h2, h3 {
-    color: #007bff;
-    font-weight: 600;
+    color: #004d99; /* Bleu foncé, plus sérieux */
+    font-weight: 700;
 }
 
 h2 {
-    border-bottom: 3px solid #007bff;
-    padding-bottom: 10px;
-    margin-top: 10px; 
+    border-bottom: 3px solid #007bff; 
+    padding-bottom: 8px;
+    margin-top: 15px; 
     margin-bottom: 25px;
-    font-size: 1.8em;
+    font-size: 1.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 h2 i {
-    margin-right: 10px;
+    margin-right: 12px;
+    color: #007bff;
 }
 
 a {
     color: #007bff;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 a:hover {
+    color: #0056b3;
     text-decoration: underline;
 }
 
 /* --- 3. Header & Navigation --- */
 .hero {
     background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px 0 0; /* Réduction du padding du bas car la nav suit */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); 
+    padding-top: 25px;
     text-align: center;
 }
 
 .header-content {
-    padding: 20px 20px 30px;
+    padding: 0 20px;
 }
 
 .photo-container img {
-    width: 120px;
-    height: 120px;
+    width: 130px; 
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #007bff;
+    border: 5px solid #007bff;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); 
     margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 5px;
+    color: #2c3e50;
 }
 
 .title {
     color: #555;
-    font-style: italic;
-    font-size: 1.1em;
-    margin-bottom: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: 25px;
 }
 
-/* Style de la barre d'information de contact dans le header */
+/* Style de la barre d'information de contact */
 .contact-info {
-    display: flex; /* Disposition horizontale */
-    flex-wrap: wrap; /* Passage à la ligne sur petit écran */
-    justify-content: center;
-    gap: 20px 30px; /* Espace entre les éléments */
-    font-size: 1em;
-    color: #555;
-}
-.contact-info span {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 15px 35px;
+    font-size: 0.95em;
+    padding-bottom: 30px;
+    color: #666;
 }
 .contact-info i {
     color: #007bff;
     margin-right: 8px;
+    font-size: 1.1em;
 }
 
 nav ul {
     list-style: none;
-    padding: 10px 0;
-    background-color: #2c3e50;
+    padding: 0;
+    background-color: #2c3e50; 
     margin: 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    border-top: 2px solid #007bff;
 }
 
 nav ul li a {
     color: white;
-    padding: 10px 15px;
+    padding: 12px 18px; 
     display: block;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 nav ul li a:hover {
-    background-color: #009688;
+    background-color: #007bff; 
+    color: #ffffff;
     text-decoration: none;
 }
 
 /* --- 4. STRUCTURE MONO-COLONNE (MAIN) --- */
 main {
-    max-width: 900px; /* Limite la largeur du contenu principal sur grands écrans */
-    margin: 40px auto; /* Centre le contenu */
-    padding: 0 20px; /* Marge latérale sur petits écrans */
+    max-width: 950px; 
+    margin: 40px auto;
+    padding: 0 25px;
 }
 
 .card {
     background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
+    padding: 35px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    margin-bottom: 40px;
+    border-left: 6px solid #007bff; 
 }
 
-/* --- 5. EXPÉRIENCES (CHRONOLOGIE ALIGNÉE À GAUCHE DANS LE FLUX) --- */
+/* --- 5. EXPÉRIENCES (CHRONOLOGIE) --- */
 .timeline {
     position: relative;
-    padding-left: 20px; 
+    padding-left: 30px; 
     list-style: none;
-    padding-bottom: 10px; /* Espace après la dernière entrée */
+    padding-bottom: 10px;
 }
 
 .timeline::before {
@@ -141,55 +158,71 @@ main {
     top: 0;
     bottom: 0;
     width: 3px;
-    background: #ccc;
+    background: #cce0ff; 
     left: 0; 
 }
 
 .timeline-item {
-    padding: 10px 0;
+    /* CORRECTION : Suppression du padding vertical pour mieux contrôler la position des éléments internes */
+    padding-top: 5px;
     position: relative;
-    width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 16px; 
+    height: 16px;
     background: #007bff;
-    border: 3px solid #f4f7f6; /* Couleur de fond pour le "pop" */
+    /* CORRECTION : Le bord du marqueur doit être la couleur de fond du MAIN pour éviter le chevauchement visuel */
+    border: 4px solid #f0f4f8; 
     border-radius: 50%;
-    z-index: 1;
-    top: 20px;
+    /* CORRECTION : Z-index élevé pour assurer qu'il est au-dessus de tout */
+    z-index: 10; 
+    top: 5px; /* CORRECTION : Aligné avec le haut de la date */
     left: -8px;
 }
 
 .timeline-date {
-    font-weight: bold;
+    font-weight: 700;
     color: #2c3e50;
     margin-bottom: 5px;
+    font-size: 0.95em;
+    /* CORRECTION : Décale la date pour qu'elle ne soit pas coupée par le point */
+    padding-left: 15px; 
+    display: block;
 }
 
 .timeline-content {
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 6px;
-    border-left: 3px solid #007bff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    background: #f8fbfd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* CORRECTION : Décalage à droite pour éviter le chevauchement du point et de la date */
+    margin-left: 15px; 
 }
 
 .timeline-content h3 {
     color: #2c3e50;
     margin-top: 0;
     margin-bottom: 5px;
-    font-size: 1.3em;
+    font-size: 1.4em;
 }
 
 .institution {
     font-style: italic;
     color: #777;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.timeline-content ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style: disc;
+}
+.timeline-content ul li {
+    margin-bottom: 5px;
 }
 
 /* --- 6. FORMATIONS --- */
@@ -199,35 +232,41 @@ main {
 }
 
 .list-style-clean p {
-    padding: 10px 0;
-    border-bottom: 1px dashed #eee;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.1em;
+}
+.list-style-clean p strong {
+    color: #004d99;
 }
 
-.list-style-clean p:last-child {
-    border-bottom: none;
-}
 
 /* --- 7. COMPÉTENCES (SKILLS GRID) --- */
 .skills-grid {
     display: grid;
-    /* 3 colonnes sur grand écran, 1 colonne sur mobile */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
     margin-top: 20px;
 }
 .skill-category {
-    background: #f8f8f8;
-    padding: 15px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    background: #fcfcfc;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
 }
+.skill-category:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
 .skill-category h3 {
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
+    border-bottom: 2px solid #cce0ff; 
+    padding-bottom: 8px;
     margin-bottom: 15px;
-    margin-top: 0;
-    color: #2c3e50;
-    font-size: 1.2em;
+    color: #007bff;
+    font-size: 1.3em;
 }
 
 .tag-list {
@@ -235,51 +274,60 @@ main {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px; 
 }
 
 .tag-list li {
-    background-color: #cce0ff;
-    color: #007bff;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.85em;
-    font-weight: 500;
+    background-color: #e6f0ff; 
+    color: #004d99;
+    padding: 6px 12px;
+    border-radius: 4px; 
+    font-size: 0.9em;
+    font-weight: 600;
+    border: 1px solid #cce0ff;
+    transition: background-color 0.2s;
 }
 
 /* --- 8. ATOUTS & LANGUES --- */
+#atouts-langues.card {
+    border-left: 6px solid #28a745; 
+}
+
 .atouts-container {
     display: flex;
     gap: 50px;
     flex-wrap: wrap;
 }
 
-.list-atouts, .list-langues {
-    flex: 1; /* Prend l'espace disponible */
-    min-width: 250px; /* Assure que les colonnes sont assez larges */
+.list-langues h3, .list-atouts h3 {
+    border-bottom: 2px solid #cce0ff;
+    color: #2c3e50;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+.list-atouts .tag-list li {
+    background-color: #e8f9ed; 
+    color: #28a745;
+    border: 1px solid #d4edda;
 }
 
-.list-langues h3, .list-atouts h3 {
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    margin-top: 0;
-    color: #2c3e50;
-    font-size: 1.3em;
-}
 .list-langues p {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    font-size: 1.05em;
+}
+.list-langues p strong {
+    color: #28a745;
 }
 
 
 /* --- 9. Footer --- */
 footer {
     text-align: center;
-    padding: 20px 0;
-    background-color: #2c3e50;
-    color: white;
+    padding: 25px 0;
+    background-color: #34495e; 
+    color: #ecf0f1;
     font-size: 0.9em;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 footer p {
     margin: 5px 0;
@@ -287,21 +335,54 @@ footer p {
 
 
 /* --- 10. Media Queries (Adaptation Mobile) --- */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .header-content {
+        padding: 20px 10px 10px;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
     .contact-info {
-        flex-direction: column; /* Contacts empilés sur mobile */
+        flex-direction: column; 
         gap: 10px;
     }
-    .atouts-container {
-        flex-direction: column; /* Atouts et langues empilés sur mobile */
-        gap: 20px;
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+    nav ul li a {
+        padding: 8px 15px;
     }
     
     main {
-        padding: 0 10px;
+        padding: 0 15px;
+    }
+    
+    /* Ajustement de la timeline en mode mobile */
+    .timeline {
+        padding-left: 20px;
+    }
+    .timeline-date {
+        padding-left: 10px;
+    }
+    .timeline-item::before {
+        left: -10px; /* Aligné avec la ligne verticale sur le bord gauche du padding */
+    }
+    .timeline-content {
+        margin-left: 0;
+        padding: 15px;
     }
 
     .card {
-        padding: 20px;
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .atouts-container {
+        flex-direction: column;
+        gap: 25px;
     }
 }
