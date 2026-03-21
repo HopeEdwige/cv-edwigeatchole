@@ -1,5 +1,3 @@
-/* style.css - Version Améliorée et Professionnelle (Incluant la correction Timeline) */
-
 /* --- 1. CSS Global Reset --- */
 * {
     /* box-sizing: border-box est essentiel pour que les tailles incluent padding/border */
@@ -225,6 +223,27 @@ main {
     margin-bottom: 5px;
 }
 
+.experience-card {
+    padding: 20px;
+    background: #fff;
+    border-left: 6px solid #007bff;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+}
+
+.experience-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.experience-card ul {
+  padding-left: 20px; /* espace entre la bordure et les puces */
+  margin-top: 10px;
+}
+
+
+
 /* --- 6. FORMATIONS --- */
 .list-style-clean {
     list-style: none;
@@ -386,3 +405,4 @@ footer p {
         gap: 25px;
     }
 }
+
