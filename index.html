@@ -4,195 +4,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV d'Edwige Atchole - Ingénierie Biomédicale</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>CV - Edwige ATCHOLE | Ingénierie Biomédicale</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style_pastel.css">
 </head>
 
 <body>
 
-    <header class="hero">
+    <header class="hero fade-in">
         <div class="header-content">
             <div class="photo-container">
                 <img src="photo.jpg" alt="Photo de Edwige ATCHOLE">
             </div>
             <h1>Edwige ATCHOLE</h1>
-            <p class="title">Stagiaire de fin d'études Master 2 en Ingénierie biomédicale</p>
+            <p class="title">Ingénierie Biomédicale • Machine Learning • Vision par Ordinateur</p>
+
             <div class="contact-info">
-                <span><i class="fas fa-map-marker-alt"></i> France - Paris - Compiègne</span>
+                <span><i class="fas fa-map-marker-alt"></i> Compiègne, France</span>
                 <span><i class="fas fa-envelope"></i> atcholeedwige@gmail.com</span>
                 <span><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/dodoedatchole"
                         target="_blank">@dodoedatchole</a></span>
             </div>
         </div>
+
         <nav>
             <ul>
-                <li><a href="#apropos">À Propos</a></li>
-                <li><a href="#experiences">Expériences & Projets</a></li>
-                <li><a href="#formations">Formations</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#recherche">Recherche</a></li>
+                <li><a href="#pro">Professionnel</a></li>
                 <li><a href="#competences">Compétences</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#formations">Formations</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="apropos" class="card">
-            <h2>À Propos de moi</h2>
-            <p>En dernière année de formation en Ingénierie biomédicale, je suis actuellement en stage de
-                fin d'études au laboratoire BMBI (Biomécanique et Bio ingénierie) à l'Université Technologique de
-                Compiègne</p>
+
+        <section id="apropos" class="card fade-in">
+            <h2>À propos</h2>
+            <p>
+                Étudiante en Master Ingénierie de la Santé, spécialisée en Génie Biomédical, je développe des
+                compétences en traitement du signal biomédical, imagerie médicale, machine learning et vision par ordinateur.
+                Passionnée par la recherche appliquée à la santé, je travaille actuellement sur l’analyse de signaux
+                HD‑sEMG pour la prédiction de la sarcopénie.
+            </p>
         </section>
 
-        <hr
-            style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #ccc, rgba(0, 0, 0, 0)); margin: 30px 0;">
+        <section id="recherche" class="fade-in">
+            <h2>Expériences de recherche</h2>
 
-        <section id="experiences">
-            <h2>Expériences professionnelles</h2>
+            <div class="experience-card">
+                <h3>Stage de recherche – Analyse biomédicale et Machine Learning</h3>
+                <p><strong>2026 - Université de Technologie de Compiègne, Laboratoire BMBI</strong></p>
+                <ul>
+                    <li>Analyse et prédiction de la sarcopénie via signaux HD‑sEMG</li>
+                    <li>Revue littéraire approfondie</li>
+                    <li>Prétraitement, filtrage, extraction de caractéristiques EMG</li>
+                    <li>Classification et intégration dans un pipeline ML</li>
+                    <li>Collaboration avec cliniciens et ingénieurs biomédicaux (AP‑HP)</li>
+                </ul>
+            </div>
 
-            <div class="list-style-clean">
+            <div class="experience-card">
+                <h3>Projet de recherche – Vision par ordinateur (YOLOv3‑v4)</h3>
+                <p><strong>2025–2026 - Université de Rouen</strong></p>
+                <ul>
+                    <li>Détection d’obstacles pour personnes malvoyantes</li>
+                    <li>Comparaison d’algorithmes YOLOv3‑v4</li>
+                    <li>Tests sur datasets publics</li>
+                    <li>Implémentation d’un pipeline complet de vision par ordinateur</li>
+                </ul>
+            </div>
 
-                <!-- Ingénieur de recherche -->
-                <div class="experience-card">
-                    <h3>Ingénieur de recherche – Stage de fin d'études</h3>
-                    <p><strong>Depuis mars 2026 — Université Technologique de Compiègne (UTC), Laboratoire BMBI</strong>
-                    </p>
-                    <ul>
-                        <li>Analyse et prédiction de la sarcopénie à partir de signaux électromyographiques (HD‑sEMG)
-                        </li>
-                        <li>Traitement et analyse de signaux HD‑sEMG chez des patients hospitalisés</li>
-                        <li>Implémentation d’algorithmes de décomposition : CCA, ICA, NMF</li>
-                        <li>Intégration des résultats dans une architecture de machine learning</li>
-                    </ul>
-                </div>
-
-                <!-- Projet tutoré -->
-                <div class="experience-card">
-                    <h3>Projet tutoré</h3>
-                    <p><strong>Septembre 2025 – Janvier 2026 — Université de Rouen</strong></p>
-                    <ul>
-                        <li>Détection d’obstacles pour l’assistance à la marche via YOLO</li>
-                        <li>Analyse des bordures de voie et identification de personnes comme obstacles</li>
-                        <li>Étude bibliographique et prise en main des outils YOLO</li>
-                        <li>Tests sur datasets publics et comparaison d’algorithmes biomédicaux</li>
-                    </ul>
-                </div>
-
-                <!-- Projet de fin d'année -->
-                <div class="experience-card">
-                    <h3>Projet de fin d’année</h3>
-                    <p><strong>Mars – Avril 2025 — Université de Rouen</strong></p>
-                    <ul>
-                        <li>Segmentation de tumeurs sur IRM et PET</li>
-                        <li>Quantification des surfaces tumorales</li>
-                    </ul>
-                </div>
-
-                <!-- OHana -->
-                <div class="experience-card">
-                    <h3>Développeur full‑stack</h3>
-                    <p><strong>Mai – Juillet 2024 — OHana Entreprise (Distanciel)</strong></p>
-                    <ul>
-                        <li>Développement d’une plateforme sécurisée de gestion de fichiers et dossiers</li>
-                        <li>Conception d’une interface intuitive avec gestion des autorisations</li>
-                    </ul>
-                </div>
-
-                <!-- Complétude -->
-                <div class="experience-card">
-                    <h3>Intervenant pédagogique</h3>
-                    <p><strong>Depuis octobre 2024 — Complétude, Rouen</strong></p>
-                    <ul>
-                        <li>Aide aux devoirs en Mathématiques et Physique‑Chimie</li>
-                        <li>Accompagnement personnalisé des élèves</li>
-                    </ul>
-                </div>
-
+            <div class="experience-card">
+                <h3>Projet d’imagerie médicale – Segmentation tumorale</h3>
+                <p><strong>2025 - Université de Rouen</strong></p>
+                <ul>
+                    <li>Segmentation de tumeurs sur IRM et PET</li>
+                    <li>Extraction de paramètres quantitatifs</li>
+                    <li>Prétraitement, filtrage, visualisation et analyse</li>
+                </ul>
             </div>
         </section>
 
+        <section id="pro" class="fade-in">
+            <h2>Expériences professionnelles & pédagogiques</h2>
 
-        <hr
-            style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #ccc, rgba(0, 0, 0, 0)); margin: 30px 0;">
+            <div class="experience-card">
+                <h3>Développeuse full‑stack</h3>
+                <p><strong>2024 - OHana Entreprise (Distanciel)</strong></p>
+                <ul>
+                    <li>Développement d’une plateforme sécurisée de gestion de fichiers</li>
+                    <li>Interface intuitive avec gestion des autorisations</li>
+                </ul>
+            </div>
 
-        <section id="formations" class="card">
-            <h2>Diplômes et Formations</h2>
-            <div class="list-style-clean">
-                <p><strong>Master 2 Ingénierie de la santé parcours Ingénierie biomédicale</strong> (Septembre 2025 à
-                    Août
-                    2026) - Université de Rouen, Rouen</p>
-                <p><strong>Master 1 Ingénierie de la santé parcours Ingénierie biomédicale</strong> (Septembre 2024 à
-                    Juin
-                    2025) - Université de Rouen, Rouen</p>
-                <p><strong>Licence en Informatique générale</strong> (Septembre 2022 à Juin 2024) - Université de
-                    Rennes,
-                    Rennes</p>
-                <p><strong>Licence en Génie Logiciel et Systèmes d'Information</strong> (Octobre 2018 à Octobre 2021) -
-                    Institut Africain d'Informatique (IAI-TOGO), Lomé</p>
+            <div class="experience-card">
+                <h3>Tutrice – Mathématiques & Physique‑Chimie</h3>
+                <p><strong>2024–2026 - Complétude, Rouen</strong></p>
+                <ul>
+                    <li>Accompagnement d’élèves du primaire au collège</li>
+                    <li>Explication de concepts scientifiques complexes</li>
+                </ul>
             </div>
         </section>
 
-        <section id="competences">
-            <h2>Compétences Techniques & Transversales</h2>
+        <section id="competences" class="fade-in">
+            <h2>Compétences techniques</h2>
+
             <div class="skills-grid">
 
                 <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Développement</h3>
+                    <h3><i class="fas fa-code"></i> Programmation</h3>
                     <ul class="tag-list">
                         <li>Python</li>
+                        <li>C++</li>
                         <li>Java</li>
-                        <li>C#, C++, R</li>
+                        <li>C#</li>
+                        <li>R</li>
+                        <li>Flask</li>
                         <li>Laravel</li>
                         <li>Flutter</li>
-                        <li>Flask</li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Data & Outils</h3>
+                    <h3><i class="fas fa-brain"></i> Vision & Imagerie</h3>
+                    <ul class="tag-list">
+                        <li>OpenCV</li>
+                        <li>YOLOv3‑v4</li>
+                        <li>IRM, PET</li>
+                        <li>Segmentation</li>
+                        <li>ImageJ</li>
+                        <li>MUEdit</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-wave-square"></i> Traitement du signal</h3>
+                    <ul class="tag-list">
+                        <li>HD‑sEMG</li>
+                        <li>Extraction de caractéristiques</li>
+                        <li>Filtrage</li>
+                        <li>Segmentation</li>
+                        <li>Classification</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Data & DevOps</h3>
                     <ul class="tag-list">
                         <li>SQL</li>
                         <li>NoSQL</li>
                         <li>Docker</li>
-                        <li>GitHub/GitLab</li>
-                        <li>Jira Software</li>
-                        <li>Postman (Tests API)</li>
+                        <li>GitHub / GitLab</li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3><i class="fas fa-heartbeat"></i> Biomédical & Systèmes</h3>
+                    <h3><i class="fas fa-calculator"></i> Mathématiques & Modélisation</h3>
                     <ul class="tag-list">
-                        <li>Biomédical</li>
-                        <li>ISO 13485</li>
-                        <li>ImageJ</li>
-                        <li>GMAO</li>
-                        <li>Agile / Trello</li>
-                        <li>UML (Modélisation)</li>
+                        <li>MATLAB</li>
+                        <li>UML</li>
+                        <li>Optimisation</li>
+                        <li>Algorithmes numériques</li>
                     </ul>
                 </div>
+
             </div>
         </section>
 
-        <hr
-            style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #ccc, rgba(0, 0, 0, 0)); margin: 30px 0;">
+        <section id="formations" class="fade-in">
+            <h2>Formations</h2>
 
-        <section id="atouts-langues" class="card">
-            <div class="atouts-container">
-                <div class="list-atouts">
-                    <h3><i class="fas fa-medal"></i> Atouts</h3>
-                    <ul class="tag-list">
-                        <li>Curiosité</li>
-                        <li>Rigueur</li>
-                        <li>Organisation</li>
-                        <li>Adaptabilité</li>
-                    </ul>
+            <div class="experience-card timeline">
+
+
+                <div class="timeline-date">2024 – Présent</div>
+                <div class="timeline-content">
+                    <h3>Master Ingénierie de la Santé parcours Ingénierie Biomédical</h3>
+                    <p class="timeline-school">Université de Rouen, France</p>
+                    <p class="timeline-details">
+                        Traitement du signal biomédical, Imagerie médicale, Machine learning.
+                    </p>
                 </div>
-                <div class="list-langues">
+
+
+
+                <div class="timeline-date">2022 – 2024</div>
+                <div class="timeline-content">
+                    <h3>Licence Informatique parcours Informatique Générale</h3>
+                    <p class="timeline-school">Université de Rennes, France</p>
+                </div>
+
+
+                <div class="timeline-date">2018 – 2021</div>
+                <div class="timeline-content">
+                    <h3>Licence Informatique parcours Génie Logiciel et Systèmes d’Information</h3>
+                    <p class="timeline-school">IAI‑Togo, Lomé, Togo</p>
+                </div>
+
+
+            </div>
+        </section>
+
+
+        <section id="langues-qualites" class="card fade-in">
+            <div class="atouts-container">
+                <div>
                     <h3><i class="fas fa-language"></i> Langues</h3>
-                    <p>Français : Maternel</p>
-                    <p>Anglais : Intermédiaire B1/B2</p>
+                    <p>Français : Natif</p>
+                    <p>Anglais : B1/B2</p>
+                    <p>Portugais : A1</p>
+                </div>
+
+                <div>
+                    <h3><i class="fas fa-star"></i> Qualités</h3>
+                    <ul class="tag-list">
+                        <li>Rigueur scientifique</li>
+                        <li>Curiosité</li>
+                        <li>Autonomie</li>
+                        <li>Adaptabilité</li>
+                        <li>Travail en équipe</li>
+                        <li>Organisation</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -200,8 +238,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Edwige Atchole. Tous droits réservés.</p>
-        <p>Centres d'intérêt : Lecture, Musique, Voyages, Marche</p>
+        <p>&copy; 2026 — Edwige ATCHOLE</p>
+        <p>Centres d’intérêt : Lecture, Musique, Voyage, Marche</p>
     </footer>
 
 </body>
