@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 /* --- 1. CSS Global Reset --- */
 * {
@@ -14,10 +15,14 @@ html {
 /* --- 2. Base et Typographie --- */
 body {
     /* Police Montserrat pour un look moderne (Assurez-vous de l'importer dans le HTML <head>) */
-    font-family: 'Montserrat', sans-serif; 
-    background-color: #f0f4f8; /* Arrière-plan doux */
-    color: #444;
+    /* font-family: 'Montserrat', sans-serif;  */
+    /* Police Poppins pour un look moderne (Assurez-vous de l'importer dans le HTML <head>) */
+    font-family: 'Poppins', sans-serif;
+    /*background-color: #f0f4f8; /* Arrière-plan doux */
+    /* color: #444; */
+    color: #333333;
     line-height: 1.6;
+    background-color: #f4f7f6; /* Un fond gris très clair */
 }
 
 h1, h2, h3 {
@@ -42,12 +47,14 @@ h2 i {
 a {
     color: #007bff;
     text-decoration: none;
-    transition: color 0.3s;
+    /* transition: color 0.3s; */
+    transition: all 0.3s ease; /* Rend le changement de couleur fluide */
 }
 
 a:hover {
     color: #0056b3;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    padding-left: 5px; /* Décale légèrement le texte vers la droite, très chic */
 }
 
 /* --- 3. Header & Navigation --- */
@@ -63,13 +70,19 @@ a:hover {
 }
 
 .photo-container img {
-    width: 130px; 
-    height: 130px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #007bff;
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); 
-    margin-bottom: 10px;
+    /* width: 130px;  */
+    /* height: 130px; */
+    /* border-radius: 50%; */
+    /* object-fit: cover; */
+    /* border: 5px solid #007bff; */
+    /* box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);  */
+    /* margin-bottom: 10px; */
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Empêche l'image de se déformer */
+    border-radius: 50%; /* Rend l'image parfaitement ronde */
+    border: 4px solid white; /* Ajoute un joli contour blanc */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 h1 {
@@ -133,6 +146,14 @@ main {
     max-width: 950px; 
     margin: 40px auto;
     padding: 0 25px;
+}
+
+.section-cv {
+  background-color: #ffffff;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 12px; /* Arrondit les angles */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Crée une ombre très douce */
 }
 
 .card {
