@@ -268,18 +268,84 @@ main {
 
 
 /* --- 6. FORMATIONS --- */
-.list-style-clean {
-    list-style: none;
-    padding: 0;
+/* --- 11. SECTION FORMATIONS (AVEC LOGOS) --- */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.list-style-clean p {
-    padding: 12px 0;
-    border-bottom: 1px solid #e0e0e0;
+.education-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background: #f8fbfd;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Petit effet interactif au survol de la souris */
+.education-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.edu-logo {
+    flex-shrink: 0; /* Empêche le logo d'être écrasé */
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.edu-logo:hover {
+    transform: scale(1.05); /* Grossit légèrement le logo au survol */
+}
+
+.edu-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Garde les proportions du logo */
+}
+
+.edu-content h3 {
+    margin: 0 0 5px 0;
     font-size: 1.1em;
 }
-.list-style-clean p strong {
+
+.edu-content h3 a {
     color: #004d99;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.edu-content h3 a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.edu-content .institution {
+    margin: 0;
+    font-size: 0.95em;
+    font-style: italic;
+    color: #777;
+}
+
+/* Ajustement pour que ça reste beau sur téléphone (écran étroit) */
+@media (max-width: 768px) {
+    .education-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
 }
 
 
@@ -332,7 +398,8 @@ main {
 
 /* --- 8. ATOUTS & LANGUES --- */
 #atouts-langues.card {
-    border-left: 6px solid #28a745; 
+    /* border-left: 6px solid #28a745;  */
+    border-left: 6px solid #004d99;
 }
 
 .atouts-container {
