@@ -74,68 +74,92 @@
       <section id="about" class="card">
         <h2>À propos</h2>
         <p>
-          Ingénieure dotée d'une double compétence en informatique et en biomédical, 
+          Ingénieure biomédical dotée d'une double compétence en informatique et en biomédical, 
           je conçois des solutions logicielles, traite des signaux médicaux 
-          et analyse des données médicales complexes (IA, Traitement du signal,
-          Imagerie). Habituée à évoluer dans des environnements
-          pluridisciplinaires (cliniciens, chercheurs, développeurs), j'allie la
-          rigueur de la recherche scientifique à l'efficacité de l'ingénierie
-          logicielle pour répondre aux enjeux de la santé numérique et de
-          l'innovation médicale.
+          et analyse des données médicales (IA, Traitement du signal, Imagerie). 
+          Habituée à évoluer dans des environnements pluridisciplinaires (cliniciens, chercheurs, développeurs), 
+          j'allie la rigueur de la recherche scientifique à l'efficacité de l'ingénierie logicielle pour répondre 
+          aux enjeux de l'innovation médicale.
         </p>
       </section>
 
       <!-- ===================== EXPÉRIENCES & RECHERCHE ===================== -->
       <section id="experience" class="card">
-        <h2>Expériences Professionnelles et R&D</h2>
+        <h2>Expériences Professionnelles et Projets de Recherche</h2>
         <ul class="timeline">
           <li class="timeline-item">
             <span class="timeline-date">Mars 2026 - Août 2026</span>
             <div class="timeline-content">
-              <h3>Ingénieure de Recherche - Traitement du signal HD-sEMG</h3>
+              <h3>Stage de fin d'études - Traitement du signal HD-sEMG</h3>
               <p class="institution">
                 Université de Technologie de Compiègne (UTC) et AP-HP
               </p>
               <ul>
-                <li>
-                  Génération, prétraitement, décomposition et classification
-                  pour l'analyse de signaux HD-sEMG.
+                <li class="no-bullet" title="Étude de la sensibilité des méthodes de décomposition de signaux HD-sEMG en simulation">
+                  <strong>Étude de la sensibilité des méthodes de décomposition de signaux HD-sEMG en simulation</strong>
                 </li>
-                <li>
-                  Implémentation d'algorithmes de décomposition (CCA, ICA) et
-                  extraction de Trains de Potentiels d'Action d'Unité Motrice.
+                <li>Revue de la littérature scientifique</li>
+
+                <li>Génération et simulation de signaux HD-sEMG à partir d’un modèle physiologique du Biceps Brachii</li>
+                
+                <li>Décomposition, extraction et classification de train de Dirac et de décharges de MUAPS 
+                  (Potentiels d’Action d’Unités Motrices) à partir d’algorithmes CCA, ICA en Python et MATLAB
                 </li>
-                <li>
-                  Participation aux protocoles de recueil de données cliniques
-                  sur des volontaires (respect de l'éthique et traçabilité).
+                
+                <li>Conception de l’interface Decomp-CCA : visualisation, décomposition, pipeline de traitement du signal HD-sEMG
                 </li>
+
                 <li>
-                  Documentation scientifique et collaboration avec des
-                  cliniciens et ingénieurs biomédicaux.
+                  Participation aux protocoles d’acquisition de signaux HD-sEMG.
+                </li>
+
+                <li>
+                  Documentation technique : protocoles, résultats, rapports d’analyse.
                 </li>
               </ul>
             </div>
           </li>
 
           <li class="timeline-item">
-            <span class="timeline-date"
-              >2025 - 2026 (Projets Académiques R&D)</span
-            >
+            <span class="timeline-date">Septembre 2025 - Janvier 2026</span>
             <div class="timeline-content">
-              <h3>Développement IA et Imagerie Médicale</h3>
+              <h3>Projet de recherche en vision par ordinateur (YOLOv3-v4)</h3>
               <p class="institution">Université de Rouen</p>
               <ul>
-                <li>
-                  <strong>Vision par ordinateur :</strong> Développement d'un
-                  pipeline de détection d'obstacles pour l'assistance à la
-                  marche via YOLOv3/v4.
+                <li class="no-bullet" title="Développement d’un système de détection d’obstacles basé sur YOLOv3-v4 
+                pour personnes atteintes de déficience visuelle">
+                  <strong>Développement d’un système de détection d’obstacles basé sur YOLOv3-v4 pour 
+                    personnes atteintes de déficience visuelle</strong>
                 </li>
+
                 <li>
-                  <strong>Imagerie Médicale (IRM/PET) :</strong> Création d'un
-                  outil Python de segmentation semi-automatique tumorale,
-                  extraction de paramètres quantitatifs et validation via
-                  métriques (Dice/IoU).
+                  Revue littérature scientifique sur les méthodes de vision par ordinateur et d’apprentissage profond pour la détection d’obstacles.
                 </li>
+
+                <li>Comparaison d’algorithmes et tests de jeux de données.</li>
+
+                <li>Implémentation d’un pipeline complet de vision par ordinateur.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <span class="timeline-date">Mars 2025 - Avril 2025</span>
+            <div class="timeline-content">
+              <h3>Projet de recherche en imagerie médicale</h3>
+              <p class="institution">Université de Rouen</p>
+              <ul>
+                <li class="no-bullet" title="Conception d’un outil Python de segmentation tumorale (IRM, PET)">
+                  <strong>Conception d’un outil Python de segmentation tumorale (IRM, PET)</strong>
+                </li>
+
+                <li>
+                  Revue littérature scientifique sur les méthodes de segmentation d’images médicales.
+                </li>
+
+                <li>Extraction de paramètres quantitatifs et validation via métriques (Dice/IoU).</li>
+
+                <li>Prétraitement, filtrage, visualisation et analyse d’images médicales.</li>
               </ul>
             </div>
           </li>
@@ -146,43 +170,79 @@
               <h3>Développeuse Full Stack</h3>
               <p class="institution">OHana Entreprise</p>
               <ul>
-                <li>
-                  Conception et développement d'une plateforme sécurisée de
-                  gestion de données et fichiers.
+                <li class="no-bullet" title="Conception et développement d'une plateforme de gestion de fichiers">
+                  <strong>Conception et développement d'une plateforme de gestion de fichiers</strong>
                 </li>
                 <li>
-                  Développement d'interfaces intuitives et optimisation des
-                  workflows utilisateurs.
+                  Plateforme permettant aux salariés de créer et de gérer des dossiers et des fichiers de
+                  manière sécurisée et organisée avec des niveaux d'autorisation spécifiques.
                 </li>
+
                 <li>
-                  Garantie de la qualité du code et de la sécurité des données
-                  traitées.
+                  Fournir une interface utilisateur intuitive pour la gestion des fichiers et des dossiers.
                 </li>
               </ul>
             </div>
           </li>
 
           <li class="timeline-item">
-            <span class="timeline-date">2021 - 2023</span>
+            <span class="timeline-date">Mai 2023 - Juin 2023</span>
             <div class="timeline-content">
-              <h3>Développeuse Web et Mobile (Multiples missions)</h3>
-              <p class="institution">Univ. de Rennes / ITEBEMA / SOFTSOLUX</p>
+              <h3>Développeuse Full Stack</h3>
+              <p class="institution">Université de Rennes</p>
               <ul>
-                <li>
-                  Développement back-end et front-end d'applications web et
-                  mobiles (Laravel, Flutter, Kotlin, C#).
+                <li class="no-bullet" title="Conception et mise en place de l’application web Sports_buddies">
+                  <strong>Conception et mise en place de l’application web Sports_buddies</strong>
                 </li>
+                <li>Plateforme permettant à toute personne de faire des rencontres par des activités sportives gratuites</li>
+                
+                <li>Rédaction du cahier des charges et modélisation UML</li>
+                
                 <li>
-                  Traduction des besoins métiers en spécifications techniques,
-                  modélisation de bases de données.
+                  Création et modélisation de la base de données SQL
                 </li>
+                
                 <li>
-                  Maintenance, correction d'anomalies, et rédaction de la
-                  documentation technique.
+                  Participation au développement back-end du site en Laravel
                 </li>
+                
+                <li>Enrichissement de la documentation technique du projet</li>
+
               </ul>
             </div>
           </li>
+
+          <li class="timeline-item">
+            <span class="timeline-date">Février 2022 - Juillet 2022</span>
+            <div class="timeline-content">
+              <h3>Développeuse Full Stack</h3>
+              <p class="institution">ITEBEMA</p>
+              <ul>
+                <li class="no-bullet" title="Conception et mise en place du site web FACTURE +">
+                  <strong>Conception et mise en place du site web FACTURE +</strong>
+                </li>
+                <li>
+                  Analyse des besoins utilisateurs, création d'un cahier des charges et modélisation UML
+                </li>
+
+                <li>
+                  Conception, Développement front-end et back-end et mise en place du site web (Laravel, JavaScript)
+                </li>
+                
+                <li>
+                  Maintenance, amélioration et ajout de nouveaux modules sur les sites et correctifs des bugs
+                </li>
+
+                <li>
+                  Contacts clients, analyses et traduction IT des besoins
+                </li>
+                
+                <li>Enrichissement de la documentation technique du projet</li>
+
+              </ul>
+            </div>
+          </li>
+
         </ul>
       </section>
 

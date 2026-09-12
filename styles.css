@@ -246,6 +246,10 @@ main {
     margin-bottom: 5px;
 }
 
+.timeline-content ul li.no-bullet {
+    list-style: none;
+}
+
 .experience-card {
     padding: 20px;
     background: #fff;
