@@ -1,57 +1,97 @@
-/* --- 1. CSS Global Reset --- */
+/* ==========================================================================
+   CV - Edwige ATCHOLE
+   Sommaire :
+   1. Variables & reset      6. Formations
+   2. Base & typographie     7. Compétences & tags
+   3. Header & navigation    8. Atouts & langues
+   4. Mise en page (main)    9. Footer
+   5. Expériences            10. Responsive  /  11. Impression
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- 1. Variables & reset --- */
+:root {
+    --bleu: #0066cc;          /* accent (contraste suffisant sur fond blanc) */
+    --bleu-hover: #004d99;
+    --bleu-fonce: #004d99;
+    --bleu-clair: #cce0ff;
+    --bleu-tag: #e6f0ff;
+    --ardoise: #2c3e50;
+    --ardoise-footer: #34495e;
+    --vert: #1e7e34;
+    --vert-clair: #e8f9ed;
+    --vert-bord: #d4edda;
+    --texte: #333333;
+    --texte-doux: #666666;
+    --fond: #f4f7f6;
+    --fond-carte: #ffffff;
+    --fond-bloc: #f8fbfd;
+    --rayon: 10px;
+    --ombre: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --nav-hauteur: 48px;
+}
+
 * {
-    /* box-sizing: border-box est essentiel pour que les tailles incluent padding/border */
-    box-sizing: border-box; 
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 html {
     scroll-behavior: smooth;
 }
 
-/* --- 2. Base et Typographie --- */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
+
+/* --- 2. Base & typographie --- */
 body {
-    /* Police Montserrat pour un look moderne (Assurez-vous de l'importer dans le HTML <head>) */
-    font-family: 'Montserrat', sans-serif; 
-    background-color: #f0f4f8; /* Arrière-plan doux */
-    color: #444;
+    font-family: 'Poppins', sans-serif;
+    color: var(--texte);
     line-height: 1.6;
+    background-color: var(--fond);
 }
 
 h1, h2, h3 {
-    color: #004d99; /* Bleu foncé, plus sérieux */
+    color: var(--bleu-fonce);
     font-weight: 700;
 }
 
 h2 {
-    border-bottom: 3px solid #007bff; 
+    border-bottom: 3px solid var(--bleu);
     padding-bottom: 8px;
-    margin-top: 15px; 
-    margin-bottom: 25px;
-    font-size: 1.9em;
+    margin-bottom: 20px;
+    font-size: 1.5em;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-h2 i {
-    margin-right: 12px;
-    color: #007bff;
-}
 
 a {
-    color: #007bff;
+    color: var(--bleu);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #0056b3;
+    color: var(--bleu-hover);
     text-decoration: underline;
 }
 
-/* --- 3. Header & Navigation --- */
+/* Focus visible au clavier (accessibilité) */
+a:focus-visible,
+summary:focus-visible {
+    outline: 3px solid #ffbf47;
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+/* --- 3. Header & navigation --- */
 .hero {
     background-color: #ffffff;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
     padding-top: 25px;
     text-align: center;
 }
@@ -61,93 +101,128 @@ a:hover {
 }
 
 .photo-container img {
-    width: 130px; 
-    height: 130px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;          /* évite la déformation */
     border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #007bff;
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); 
-    margin-bottom: 10px;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    font-size: 2.8em;
+    font-size: 2.6em;
     margin-bottom: 5px;
-    color: #2c3e50;
+    color: var(--ardoise);
 }
 
 .title {
     color: #555;
-    font-style: normal;
     font-weight: 600;
-    font-size: 1.2em;
-    margin-bottom: 25px;
+    font-size: 1.15em;
+    margin-bottom: 20px;
 }
 
-/* Style de la barre d'information de contact */
 .contact-info {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 15px 35px;
+    gap: 12px 35px;
     font-size: 0.95em;
-    padding-bottom: 30px;
-    color: #666;
+    padding-bottom: 25px;
+    color: var(--texte-doux);
 }
+
 .contact-info i {
-    color: #007bff;
+    color: var(--bleu);
     margin-right: 8px;
     font-size: 1.1em;
 }
 
+/* Navigation collante : reste visible pendant le défilement */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
 nav ul {
     list-style: none;
-    padding: 0;
-    background-color: #2c3e50; 
-    margin: 0;
+    background-color: var(--ardoise);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    border-top: 2px solid #007bff;
+    border-top: 2px solid var(--bleu);
 }
 
 nav ul li a {
     color: white;
-    padding: 12px 18px; 
+    padding: 12px 18px;
     display: block;
-    transition: background-color 0.3s, color 0.3s;
     font-weight: 600;
+    font-size: 0.9em;
     text-transform: uppercase;
+    transition: background-color 0.2s;
 }
 
 nav ul li a:hover {
-    background-color: #007bff; 
+    background-color: var(--bleu);
     color: #ffffff;
     text-decoration: none;
 }
 
-/* --- 4. STRUCTURE MONO-COLONNE (MAIN) --- */
+/* --- 4. Mise en page (main) --- */
 main {
-    max-width: 950px; 
-    margin: 40px auto;
+    max-width: 950px;
+    margin: 30px auto;
     padding: 0 25px;
 }
 
-.card {
-    background-color: white;
-    padding: 35px; 
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
-    margin-bottom: 40px;
-    border-left: 6px solid #007bff; 
+/* Les ancres ne se cachent pas sous la nav collante */
+section[id] {
+    scroll-margin-top: calc(var(--nav-hauteur) + 15px);
 }
 
-/* --- 5. EXPÉRIENCES (CHRONOLOGIE) --- */
+.card {
+    background-color: var(--fond-carte);
+    padding: 28px;
+    border-radius: var(--rayon);
+    box-shadow: var(--ombre);
+    margin-bottom: 24px;
+    border-left: 6px solid var(--bleu);
+}
+
+#atouts-langues.card {
+    border-left-color: var(--bleu-fonce);
+}
+
+/* ---- Mode DEUX COLONNES ----
+   S'active tout seul dès que le HTML contient <aside class="sidebar">
+   à l'intérieur de <main>. Sans cet <aside>, la page reste en une colonne. */
+main:has(> .sidebar) {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 0 28px;
+    align-items: start;
+}
+
+.sidebar .card:last-child,
+.content .card:last-child {
+    margin-bottom: 0;
+}
+
+/* Titres plus discrets dans la colonne étroite */
+.sidebar h2 {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+/* --- 5. Expériences (chronologie) --- */
 .timeline {
     position: relative;
-    padding-left: 30px; 
+    padding-left: 30px;
     list-style: none;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .timeline::before {
@@ -155,254 +230,388 @@ main {
     position: absolute;
     top: 0;
     bottom: 0;
+    left: 0;
     width: 3px;
-    background: #cce0ff; 
-    left: 0; 
+    background: var(--bleu-clair);
 }
 
 .timeline-item {
-    /* CORRECTION : Suppression du padding vertical pour mieux contrôler la position des éléments internes */
-    padding-top: 5px;
     position: relative;
-    margin-bottom: 30px;
+    padding-top: 5px;
+    margin-bottom: 22px;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    width: 16px; 
-    height: 16px;
-    background: #007bff;
-    /* CORRECTION : Le bord du marqueur doit être la couleur de fond du MAIN pour éviter le chevauchement visuel */
-    border: 4px solid #f0f4f8; 
-    border-radius: 50%;
-    /* CORRECTION : Z-index élevé pour assurer qu'il est au-dessus de tout */
-    z-index: 10; 
-    top: 5px; /* CORRECTION : Aligné avec le haut de la date */
+    top: 5px;
     left: -8px;
+    width: 16px;
+    height: 16px;
+    background: var(--bleu);
+    border: 4px solid var(--fond-carte);   /* même couleur que la carte */
+    border-radius: 50%;
+    z-index: 1;
 }
 
 .timeline-date {
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 5px;
-    font-size: 0.95em;
-    /* CORRECTION : Décale la date pour qu'elle ne soit pas coupée par le point */
-    padding-left: 15px; 
     display: block;
+    font-weight: 700;
+    color: var(--ardoise);
+    font-size: 0.95em;
+    margin-bottom: 5px;
+    padding-left: 15px;
 }
 
 .timeline-content {
-    background: #f8fbfd;
-    padding: 20px;
+    background: var(--fond-bloc);
+    padding: 18px 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    /* CORRECTION : Décalage à droite pour éviter le chevauchement du point et de la date */
-    margin-left: 15px; 
+    margin-left: 15px;
 }
 
 .timeline-content h3 {
-    color: #2c3e50;
-    margin-top: 0;
-    margin-bottom: 5px;
-    font-size: 1.4em;
+    color: var(--ardoise);
+    font-size: 1.2em;
+    margin-bottom: 3px;
 }
 
 .institution {
     font-style: italic;
-    color: #777;
-    margin-bottom: 15px;
+    color: var(--texte-doux);
+    margin-bottom: 10px;
 }
 
 .timeline-content ul {
-    margin-top: 10px;
+    margin-top: 8px;
     padding-left: 20px;
     list-style: disc;
 }
+
 .timeline-content ul li {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
-.experience-card {
-    padding: 20px;
-    background: #fff;
-    border-left: 6px solid #007bff;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    margin-bottom: 25px;
-}
-
-.experience-card h3 {
-    margin-top: 0;
-    color: #2c3e50;
-}
-
-.experience-card ul {
-  padding-left: 20px; /* espace entre la bordure et les puces */
-  margin-top: 10px;
-}
-
-
-
-/* --- 6. FORMATIONS --- */
-.list-style-clean {
+.timeline-content ul li.no-bullet {
     list-style: none;
-    padding: 0;
+    margin-left: -20px;
 }
 
-.list-style-clean p {
-    padding: 12px 0;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 1.1em;
-}
-.list-style-clean p strong {
-    color: #004d99;
+/* Bloc repliable (ex. anciennes expériences) :
+   <details class="more"><summary>Voir plus</summary> ... </details> */
+details.more > summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--bleu);
+    padding: 8px 0 8px 15px;
+    margin-bottom: 15px;
 }
 
+details.more > summary:hover {
+    text-decoration: underline;
+}
 
-/* --- 7. COMPÉTENCES (SKILLS GRID) --- */
+/* --- 6. Formations --- */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.education-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px;
+    background: var(--fond-bloc);
+    border-radius: 8px;
+    border-left: 4px solid var(--bleu);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.education-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.edu-logo {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.edu-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.edu-content h3 {
+    margin: 0 0 3px;
+    font-size: 1.05em;
+}
+
+.edu-content h3 a {
+    color: var(--bleu-fonce);
+}
+
+.edu-content h3 a:hover {
+    color: var(--bleu);
+    text-decoration: underline;
+}
+
+.edu-content .institution {
+    margin: 0;
+    font-size: 0.92em;
+}
+
+/* Dans la colonne étroite : logo plus petit */
+.sidebar .education-item {
+    gap: 12px;
+    padding: 12px;
+}
+
+.sidebar .edu-logo {
+    width: 52px;
+    height: 52px;
+    padding: 6px;
+}
+
+.sidebar .edu-content h3 {
+    font-size: 0.95em;
+}
+
+/* --- 7. Compétences & tags --- */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
 }
+
 .skill-category {
     background: #fcfcfc;
-    padding: 20px;
+    padding: 16px;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .skill-category:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .skill-category h3 {
-    border-bottom: 2px solid #cce0ff; 
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    color: #007bff;
-    font-size: 1.3em;
+    border-bottom: 2px solid var(--bleu-clair);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    color: var(--bleu);
+    font-size: 1.05em;
 }
 
 .tag-list {
     list-style: none;
-    padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px; 
+    gap: 6px;
 }
 
 .tag-list li {
-    background-color: #e6f0ff; 
-    color: #004d99;
-    padding: 6px 12px;
-    border-radius: 4px; 
-    font-size: 0.9em;
+    background-color: var(--bleu-tag);
+    color: var(--bleu-fonce);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
     font-weight: 600;
-    border: 1px solid #cce0ff;
-    transition: background-color 0.2s;
+    border: 1px solid var(--bleu-clair);
 }
 
-/* --- 8. ATOUTS & LANGUES --- */
-#atouts-langues.card {
-    border-left: 6px solid #28a745; 
+/* Dans la colonne étroite : une seule colonne de catégories */
+.sidebar .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
 }
 
+/* --- 8. Atouts & langues --- */
 .atouts-container {
     display: flex;
-    gap: 50px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
-.list-langues h3, .list-atouts h3 {
-    border-bottom: 2px solid #cce0ff;
-    color: #2c3e50;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
+.list-langues h3,
+.list-atouts h3 {
+    border-bottom: 2px solid var(--bleu-clair);
+    color: var(--ardoise);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    font-size: 1.05em;
 }
+
 .list-atouts .tag-list li {
-    background-color: #e8f9ed; 
-    color: #28a745;
-    border: 1px solid #d4edda;
+    background-color: var(--vert-clair);
+    color: var(--vert);
+    border: 1px solid var(--vert-bord);
 }
 
 .list-langues p {
-    margin-bottom: 10px;
-    font-size: 1.05em;
-}
-.list-langues p strong {
-    color: #28a745;
+    margin-bottom: 8px;
 }
 
+.list-langues p strong {
+    color: var(--vert);
+}
+
+.sidebar .atouts-container {
+    flex-direction: column;
+    gap: 20px;
+}
 
 /* --- 9. Footer --- */
 footer {
     text-align: center;
-    padding: 25px 0;
-    background-color: #34495e; 
+    padding: 20px 0;
+    background-color: var(--ardoise-footer);
     color: #ecf0f1;
     font-size: 0.9em;
-    margin-top: 50px;
+    margin-top: 30px;
 }
+
 footer p {
     margin: 5px 0;
 }
 
+/* --- 10. Responsive --- */
 
-/* --- 10. Media Queries (Adaptation Mobile) --- */
+/* Tablette / petit écran : retour à une seule colonne.
+   Les expériences passent avant la sidebar. */
+@media (max-width: 900px) {
+    main:has(> .sidebar) {
+        display: flex;
+        flex-direction: column;
+        max-width: 950px;
+    }
+
+    .content {
+        order: -1;
+        margin-bottom: 24px;
+    }
+
+    .sidebar h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
     .header-content {
         padding: 20px 10px 10px;
     }
+
     h1 {
-        font-size: 2.2em;
+        font-size: 2.1em;
     }
+
     h2 {
-        font-size: 1.6em;
+        font-size: 1.3em;
     }
+
     .contact-info {
-        flex-direction: column; 
+        flex-direction: column;
         gap: 10px;
     }
+
+    /* Nav sur une seule ligne défilante : reste compacte une fois collante */
     nav ul {
-        flex-direction: column;
-        gap: 0;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
+
     nav ul li a {
-        padding: 8px 15px;
+        padding: 12px 14px;
+        white-space: nowrap;
+        font-size: 0.8em;
     }
-    
+
     main {
         padding: 0 15px;
     }
-    
-    /* Ajustement de la timeline en mode mobile */
+
+    .card {
+        padding: 22px;
+        margin-bottom: 20px;
+    }
+
     .timeline {
         padding-left: 20px;
     }
+
     .timeline-date {
-        padding-left: 10px;
+        padding-left: 18px;
     }
+
     .timeline-item::before {
-        left: -10px; /* Aligné avec la ligne verticale sur le bord gauche du padding */
+        left: -10px;
     }
+
     .timeline-content {
         margin-left: 0;
         padding: 15px;
     }
 
-    .card {
-        padding: 25px;
-        margin-bottom: 30px;
+    .education-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
     }
-    
+
     .atouts-container {
         flex-direction: column;
-        gap: 25px;
+        gap: 22px;
     }
 }
 
+/* --- 11. Impression / export PDF --- */
+@page {
+    margin: 12mm;
+}
+
+@media print {
+    body {
+        background: #ffffff;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero,
+    .card,
+    .timeline-content,
+    .education-item,
+    .skill-category {
+        box-shadow: none;
+    }
+
+    .card,
+    .timeline-item,
+    .education-item {
+        break-inside: avoid;
+    }
+
+    footer {
+        background: none;
+        color: var(--texte-doux);
+    }
+}
