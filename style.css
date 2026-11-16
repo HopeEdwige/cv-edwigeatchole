@@ -1,35 +1,30 @@
 /* ==========================================================================
-   CV - Edwige ATCHOLE
+   CV - Edwige ATCHOLE  ·  Design « Clair »
    Sommaire :
-   1. Variables & reset      6. Formations
-   2. Base & typographie     7. Compétences & tags
-   3. Header & navigation    8. Atouts & langues
-   4. Mise en page (main)    9. Footer
-   5. Expériences            10. Responsive  /  11. Impression
+   1. Variables & reset     5. Colonne droite : À propos
+   2. Base                  6. Colonne droite : Expériences
+   3. Mise en page (grille) 7. Colonne droite : Formations
+   4. Colonne gauche        8. Footer
+                            9. Responsive  /  10. Impression
    ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 /* --- 1. Variables & reset --- */
 :root {
-    --bleu: #0066cc;          /* accent (contraste suffisant sur fond blanc) */
-    --bleu-hover: #004d99;
-    --bleu-fonce: #004d99;
-    --bleu-clair: #cce0ff;
-    --bleu-tag: #e6f0ff;
-    --ardoise: #2c3e50;
-    --ardoise-footer: #34495e;
-    --vert: #1e7e34;
-    --vert-clair: #e8f9ed;
-    --vert-bord: #d4edda;
-    --texte: #333333;
-    --texte-doux: #666666;
-    --fond: #f4f7f6;
-    --fond-carte: #ffffff;
-    --fond-bloc: #f8fbfd;
-    --rayon: 10px;
-    --ombre: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --nav-hauteur: 48px;
+    --teal-900: #0F3D3E;       /* colonne gauche */
+    --teal-800: #0B5A5A;       /* dates */
+    --teal-700: #0B6E6E;       /* accent sur fond clair */
+    --mint: #7FD1C7;           /* accent sur fond sombre */
+    --mint-soft: #CFF3EC;
+    --mint-ink: #0B4F4A;
+    --on-dark: #E8F7F5;
+    --on-dark-muted: #BFE6E0;
+    --ink: #16302F;            /* texte principal */
+    --ink-soft: #35504F;       /* texte secondaire */
+    --muted: #4A6463;
+    --line: #D5E6E3;
+    --block: #EEF6F5;
+    --page: #EEF4F3;
+    --font: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
 * {
@@ -38,281 +33,305 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    * { transition: none !important; }
-}
-
-/* --- 2. Base & typographie --- */
+/* --- 2. Base --- */
 body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--texte);
+    font-family: var(--font);
+    color: var(--ink);
+    background: var(--page);
     line-height: 1.6;
-    background-color: var(--fond);
 }
 
-h1, h2, h3 {
-    color: var(--bleu-fonce);
-    font-weight: 700;
-}
-
-h2 {
-    border-bottom: 3px solid var(--bleu);
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+ul {
+    list-style: none;
 }
 
 a {
-    color: var(--bleu);
-    text-decoration: none;
-    transition: color 0.2s ease;
+    color: var(--teal-700);
 }
 
 a:hover {
-    color: var(--bleu-hover);
-    text-decoration: underline;
+    color: #064646;
 }
 
 /* Focus visible au clavier (accessibilité) */
-a:focus-visible,
-summary:focus-visible {
-    outline: 3px solid #ffbf47;
+a:focus-visible {
+    outline: 3px solid #FFBF47;
     outline-offset: 2px;
     border-radius: 3px;
 }
 
-/* --- 3. Header & navigation --- */
-.hero {
-    background-color: #ffffff;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-    padding-top: 25px;
-    text-align: center;
+/* --- 3. Mise en page : deux colonnes en grille ---
+   Ordre du HTML : identité -> contenu -> compétences.
+   Sur grand écran : la colonne gauche = identité + compétences,
+   la colonne droite = contenu. Sur mobile : tout s'empile dans l'ordre du HTML,
+   donc les expériences passent avant les compétences. */
+.page {
+    max-width: 1280px;
+    margin: 0 auto;
+    background: #ffffff;
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "identity content"
+        "side     content";
 }
 
-.header-content {
-    padding: 0 20px;
+/* --- 4. Colonne gauche --- */
+.identity {
+    grid-area: identity;
+    background: var(--teal-900);
+    color: var(--on-dark);
+    padding: 48px 32px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
 }
 
 .photo-container img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;          /* évite la déformation */
+    display: block;
+    width: 148px;
+    height: 148px;
+    object-fit: cover;
     border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 4px solid var(--mint);
 }
 
 h1 {
-    font-size: 2.6em;
-    margin-bottom: 5px;
-    color: var(--ardoise);
+    font-size: 30px;
+    line-height: 1.15;
+    font-weight: 800;
+    color: #ffffff;
 }
 
 .title {
-    color: #555;
-    font-weight: 600;
-    font-size: 1.15em;
-    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--on-dark-muted);
+}
+
+.keywords {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--on-dark-muted);
+    margin-top: -8px;
+    text-wrap: balance;     /* évite un mot seul sur la dernière ligne */
+}
+
+.disponibilite {
+    background: var(--mint-soft);
+    color: var(--mint-ink);
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 999px;
 }
 
 .contact-info {
+    align-self: stretch;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px 35px;
-    font-size: 0.95em;
-    padding-bottom: 25px;
-    color: var(--texte-doux);
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    text-align: left;
 }
 
-.contact-info i {
-    color: var(--bleu);
-    margin-right: 8px;
-    font-size: 1.1em;
+.contact-info li:first-child {
+    color: var(--on-dark-muted);
 }
 
-/* Navigation collante : reste visible pendant le défilement */
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav ul {
-    list-style: none;
-    background-color: var(--ardoise);
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    border-top: 2px solid var(--bleu);
-}
-
-nav ul li a {
-    color: white;
-    padding: 12px 18px;
-    display: block;
-    font-weight: 600;
-    font-size: 0.9em;
-    text-transform: uppercase;
-    transition: background-color 0.2s;
-}
-
-nav ul li a:hover {
-    background-color: var(--bleu);
+.contact-info a {
     color: #ffffff;
     text-decoration: none;
+    overflow-wrap: anywhere;
 }
 
-/* --- 4. Mise en page (main) --- */
-main {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 0 25px;
-}
-
-/* Les ancres ne se cachent pas sous la nav collante */
-section[id] {
-    scroll-margin-top: calc(var(--nav-hauteur) + 15px);
-}
-
-.card {
-    background-color: var(--fond-carte);
-    padding: 28px;
-    border-radius: var(--rayon);
-    box-shadow: var(--ombre);
-    margin-bottom: 24px;
-    border-left: 6px solid var(--bleu);
-}
-
-#atouts-langues.card {
-    border-left-color: var(--bleu-fonce);
-}
-
-/* ---- Mode DEUX COLONNES ----
-   S'active tout seul dès que le HTML contient <aside class="sidebar">
-   à l'intérieur de <main>. Sans cet <aside>, la page reste en une colonne. */
-main:has(> .sidebar) {
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: 340px minmax(0, 1fr);
-    gap: 0 28px;
-    align-items: start;
-}
-
-.sidebar .card:last-child,
-.content .card:last-child {
-    margin-bottom: 0;
-}
-
-/* Titres plus discrets dans la colonne étroite */
-.sidebar h2 {
-    font-size: 1.1em;
-    margin-bottom: 15px;
-}
-
-/* --- 5. Expériences (chronologie) --- */
-.timeline {
-    position: relative;
-    padding-left: 30px;
-    list-style: none;
-    padding-bottom: 5px;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 3px;
-    background: var(--bleu-clair);
-}
-
-.timeline-item {
-    position: relative;
-    padding-top: 5px;
-    margin-bottom: 22px;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: -8px;
-    width: 16px;
-    height: 16px;
-    background: var(--bleu);
-    border: 4px solid var(--fond-carte);   /* même couleur que la carte */
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.timeline-date {
-    display: block;
-    font-weight: 700;
-    color: var(--ardoise);
-    font-size: 0.95em;
-    margin-bottom: 5px;
-    padding-left: 15px;
-}
-
-.timeline-content {
-    background: var(--fond-bloc);
-    padding: 18px 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    margin-left: 15px;
-}
-
-.timeline-content h3 {
-    color: var(--ardoise);
-    font-size: 1.2em;
-    margin-bottom: 3px;
-}
-
-.institution {
-    font-style: italic;
-    color: var(--texte-doux);
-    margin-bottom: 10px;
-}
-
-.timeline-content ul {
-    margin-top: 8px;
-    padding-left: 20px;
-    list-style: disc;
-}
-
-.timeline-content ul li {
-    margin-bottom: 4px;
-}
-
-.timeline-content ul li.no-bullet {
-    list-style: none;
-    margin-left: -20px;
-}
-
-/* Bloc repliable (ex. anciennes expériences) :
-   <details class="more"><summary>Voir plus</summary> ... </details> */
-details.more > summary {
-    cursor: pointer;
-    font-weight: 600;
-    color: var(--bleu);
-    padding: 8px 0 8px 15px;
-    margin-bottom: 15px;
-}
-
-details.more > summary:hover {
+.contact-info a:hover {
     text-decoration: underline;
 }
 
-/* --- 6. Formations --- */
+.contact-info a:focus-visible {
+    outline-color: #FFBF47;
+}
+
+.side {
+    grid-area: side;
+    background: var(--teal-900);
+    color: var(--on-dark);
+    padding: 0 32px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Trait de séparation sous l'identité */
+.side::before {
+    content: "";
+    height: 1px;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.side h2 {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+#skills {
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#skills h2 {
+    margin-bottom: 18px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.skill-category h3 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mint);
+    margin-bottom: 8px;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag-list li {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    font-size: 12.5px;
+    line-height: 1.5;
+}
+
+/* Savoir-être : pastilles menthe pleines */
+.list-atouts .tag-list li {
+    background: var(--mint-soft);
+    border-color: transparent;
+    color: var(--mint-ink);
+    font-weight: 600;
+}
+
+.side p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.side p:last-child {
+    margin-bottom: 0;
+}
+
+.list-langues strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.interets p {
+    color: var(--on-dark-muted);
+}
+
+/* --- 5. Colonne droite : conteneur & À propos --- */
+.content {
+    grid-area: content;
+    min-width: 0;
+    padding: 52px clamp(20px, 5vw, 56px);
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+
+.content h2 {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-700);
+    margin-bottom: 14px;
+}
+
+#about p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* --- 6. Expériences --- */
+.timeline-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+}
+
+.timeline-item:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.timeline-date {
+    flex: 0 0 130px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--teal-800);
+}
+
+.timeline-content {
+    flex: 1 1 360px;
+    min-width: 0;
+}
+
+.timeline-content h3 {
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--ink);
+}
+
+.institution {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal-700);
+    margin: 2px 0 10px;
+}
+
+.timeline-content ul {
+    list-style: disc;
+    padding-left: 18px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+}
+
+/* Première ligne de chaque expérience : sous-titre en gras, sans puce */
+.timeline-content li.no-bullet {
+    list-style: none;
+    margin-left: -18px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    line-height: 1.55;
+    color: var(--ink);
+}
+
+/* --- 7. Formations --- */
 .education-list {
     display: flex;
     flex-direction: column;
@@ -321,270 +340,110 @@ details.more > summary:hover {
 
 .education-item {
     display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 14px;
-    background: var(--fond-bloc);
-    border-radius: 8px;
-    border-left: 4px solid var(--bleu);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 20px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: var(--block);
 }
 
-.education-item:hover {
-    transform: translateX(4px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.edu-logo {
-    flex-shrink: 0;
-    width: 64px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.edu-logo img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+.edu-content {
+    flex: 1 1 320px;
 }
 
 .edu-content h3 {
-    margin: 0 0 3px;
-    font-size: 1.05em;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.4;
 }
 
 .edu-content h3 a {
-    color: var(--bleu-fonce);
+    color: var(--ink);
+    text-decoration: none;
 }
 
 .edu-content h3 a:hover {
-    color: var(--bleu);
+    color: var(--teal-700);
     text-decoration: underline;
 }
 
-.edu-content .institution {
-    margin: 0;
-    font-size: 0.92em;
+.education-item .institution {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    margin: 2px 0 0;
 }
 
-/* Dans la colonne étroite : logo plus petit */
-.sidebar .education-item {
-    gap: 12px;
-    padding: 12px;
+.edu-years {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal-800);
 }
 
-.sidebar .edu-logo {
-    width: 52px;
-    height: 52px;
-    padding: 6px;
-}
-
-.sidebar .edu-content h3 {
-    font-size: 0.95em;
-}
-
-/* --- 7. Compétences & tags --- */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-}
-
-.skill-category {
-    background: #fcfcfc;
-    padding: 16px;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.skill-category:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.skill-category h3 {
-    border-bottom: 2px solid var(--bleu-clair);
-    padding-bottom: 6px;
-    margin-bottom: 12px;
-    color: var(--bleu);
-    font-size: 1.05em;
-}
-
-.tag-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.tag-list li {
-    background-color: var(--bleu-tag);
-    color: var(--bleu-fonce);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.85em;
-    font-weight: 600;
-    border: 1px solid var(--bleu-clair);
-}
-
-/* Dans la colonne étroite : une seule colonne de catégories */
-.sidebar .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-}
-
-/* --- 8. Atouts & langues --- */
-.atouts-container {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.list-langues h3,
-.list-atouts h3 {
-    border-bottom: 2px solid var(--bleu-clair);
-    color: var(--ardoise);
-    padding-bottom: 6px;
-    margin-bottom: 12px;
-    font-size: 1.05em;
-}
-
-.list-atouts .tag-list li {
-    background-color: var(--vert-clair);
-    color: var(--vert);
-    border: 1px solid var(--vert-bord);
-}
-
-.list-langues p {
-    margin-bottom: 8px;
-}
-
-.list-langues p strong {
-    color: var(--vert);
-}
-
-.sidebar .atouts-container {
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* --- 9. Footer --- */
+/* --- 8. Footer --- */
 footer {
     text-align: center;
-    padding: 20px 0;
-    background-color: var(--ardoise-footer);
-    color: #ecf0f1;
-    font-size: 0.9em;
-    margin-top: 30px;
+    padding: 20px;
+    font-size: 12.5px;
+    color: var(--muted);
 }
 
-footer p {
-    margin: 5px 0;
-}
+/* --- 9. Responsive --- */
 
-/* --- 10. Responsive --- */
-
-/* Tablette / petit écran : retour à une seule colonne.
-   Les expériences passent avant la sidebar. */
+/* Tablette / mobile : une seule colonne, dans l'ordre du HTML */
 @media (max-width: 900px) {
-    main:has(> .sidebar) {
-        display: flex;
-        flex-direction: column;
-        max-width: 950px;
+    .page {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: none;
+        grid-template-areas:
+            "identity"
+            "content"
+            "side";
     }
 
     .content {
-        order: -1;
-        margin-bottom: 24px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
-    .sidebar h2 {
-        font-size: 1.5em;
+    .side::before {
+        display: none;
+    }
+
+    .identity {
+        padding-bottom: 36px;
+    }
+
+    .side {
+        padding-top: 40px;
     }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .header-content {
-        padding: 20px 10px 10px;
+@media (max-width: 600px) {
+    .identity,
+    .side {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     h1 {
-        font-size: 2.1em;
+        font-size: 26px;
     }
 
-    h2 {
-        font-size: 1.3em;
-    }
-
-    .contact-info {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    /* Nav sur une seule ligne défilante : reste compacte une fois collante */
-    nav ul {
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    nav ul li a {
-        padding: 12px 14px;
-        white-space: nowrap;
-        font-size: 0.8em;
-    }
-
-    main {
-        padding: 0 15px;
-    }
-
-    .card {
-        padding: 22px;
-        margin-bottom: 20px;
-    }
-
-    .timeline {
-        padding-left: 20px;
+    #about p {
+        font-size: 16.5px;
     }
 
     .timeline-date {
-        padding-left: 18px;
-    }
-
-    .timeline-item::before {
-        left: -10px;
-    }
-
-    .timeline-content {
-        margin-left: 0;
-        padding: 15px;
-    }
-
-    .education-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
-    .atouts-container {
-        flex-direction: column;
-        gap: 22px;
+        flex-basis: 100%;
     }
 }
 
-/* --- 11. Impression / export PDF --- */
+/* --- 10. Impression / export PDF --- */
 @page {
-    margin: 12mm;
+    margin: 10mm;
 }
 
 @media print {
@@ -592,26 +451,17 @@ footer p {
         background: #ffffff;
     }
 
-    nav {
-        display: none;
-    }
-
-    .hero,
-    .card,
-    .timeline-content,
+    .identity,
+    .side,
+    .disponibilite,
     .education-item,
-    .skill-category {
-        box-shadow: none;
+    .tag-list li {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 
-    .card,
     .timeline-item,
     .education-item {
         break-inside: avoid;
-    }
-
-    footer {
-        background: none;
-        color: var(--texte-doux);
     }
 }
